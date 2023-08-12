@@ -26,14 +26,16 @@ infix operator ≢ : ComparisonPrecedence
 
 // MARK: - Implementations
 
-public func ≠ <T: Equatable>(_ lhs: T, _ rhs: T) -> Bool { lhs != rhs }
+public func ≠ <T: Equatable>(x: T, y: T) -> Bool { x != y }
 
-public func ≈ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool {
-    lhs == rhs || lhs.nextDown == rhs || lhs.nextUp == rhs
+public func ≈ <T: FloatingPoint>(x: T, y: T) -> Bool {
+    x == y 
+    || x.nextDown == y
+    || x.nextUp == y
 }
-public func ≉ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool {
-    !(lhs ≈ rhs)
+public func ≉ <T: FloatingPoint>(x: T, y: T) -> Bool {
+    !(x ≈ y)
 }
 
-public func ≡ (lhs: AnyObject?, rhs: AnyObject?) -> Bool { lhs === rhs }
-public func ≢ (lhs: AnyObject?, rhs: AnyObject?) -> Bool { lhs !== rhs }
+public func ≡ (x: AnyObject?, y: AnyObject?) -> Bool { x === y }
+public func ≢ (x: AnyObject?, y: AnyObject?) -> Bool { x !== y }

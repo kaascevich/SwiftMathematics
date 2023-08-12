@@ -21,5 +21,5 @@ infix operator ×= : AssignmentPrecedence
 
 // MARK: - Implementations
 
-public func × <T: BinaryInteger>(_ lhs: T, _ rhs: T) -> T { lhs * rhs }
-public func ×= <T: BinaryInteger>(_ lhs: inout T, _ rhs: T) { lhs *= rhs }
+public func × <T: BinaryInteger>(x: T, y: T) -> T { x * y }
+public func ×= <T: BinaryInteger>(x: inout T, y: T) { x *= y }

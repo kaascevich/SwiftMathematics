@@ -27,10 +27,10 @@ infix operator √ : PowerPrecedence
 // MARK: - Implementations
 
 public extension Double {
-    static prefix func √ (_ value: Self) -> Self { value.squareRoot() }
+    static prefix func √ (x: Self) -> Self { x.squareRoot() }
     
-    static prefix func ∛ (_ value: Self) -> Self { cbrt(value) }
-    static prefix func ∜ (_ value: Self) -> Self { pow(value, 1/4) }
+    static prefix func ∛ (x: Self) -> Self { cbrt(x) }
+    static prefix func ∜ (x: Self) -> Self { pow(x, 1/4) }
     
-    static func √ (_ index: Self, _ radicand: Self) -> Self { pow(radicand, 1/index) }
+    static func √ (index: Self, radicand: Self) -> Self { pow(radicand, 1/index) }
 }

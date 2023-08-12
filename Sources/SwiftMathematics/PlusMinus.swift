@@ -25,17 +25,17 @@ infix operator ∓ : AdditionPrecedence
 // MARK: - Implementations
 
 public extension SignedNumeric {
-    static prefix func ± (_ value: Self) -> (positive: Self, negative: Self) {
-        (+value, -value)
+    static prefix func ± (x: Self) -> (positive: Self, negative: Self) {
+        (+x, -x)
     }
-    static prefix func ∓ (_ value: Self) -> (negative: Self, positive: Self) {
-        (-value, +value)
+    static prefix func ∓ (x: Self) -> (negative: Self, positive: Self) {
+        (-x, +x)
     }
     
-    static func ± (_ lhs: Self, _ rhs: Self) -> (added: Self, subtracted: Self) {
-        (lhs + rhs, lhs - rhs)
+    static func ± (x: Self, y: Self) -> (added: Self, subtracted: Self) {
+        (x + y, x - y)
     }
-    static func ∓ (_ lhs: Self, _ rhs: Self) -> (subtracted: Self, added: Self) {
-        (lhs - rhs, lhs + rhs)
+    static func ∓ (x: Self, y: Self) -> (subtracted: Self, added: Self) {
+        (x - y, x + y)
     }
 }

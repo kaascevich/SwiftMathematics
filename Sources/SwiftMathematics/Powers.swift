@@ -30,10 +30,10 @@ infix operator **= : AssignmentPrecedence
 // MARK: - Implementations
 
 public extension Double {
-    static func ** (_ base: Self, _ exponent: Self) -> Self {
+    static func ** (base: Self, exponent: Self) -> Self {
         pow(base, exponent)
     }
-    static func **= (_ base: inout Self, _ exponent: Self) {
+    static func **= (base: inout Self, exponent: Self) {
         base = pow(base, exponent)
     }
 }

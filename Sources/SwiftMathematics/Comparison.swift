@@ -42,57 +42,57 @@ infix operator ≬:  ComparisonPrecedence
 // MARK: - Implementations
 
 public extension Comparable {
-    static func ≤ (_ lhs: Self, _ rhs: Self) -> Bool { lhs <= rhs }
-    static func ≥ (_ lhs: Self, _ rhs: Self) -> Bool { lhs >= rhs }
-    static func ⋜ (_ lhs: Self, _ rhs: Self) -> Bool { lhs <= rhs }
-    static func ⋝ (_ lhs: Self, _ rhs: Self) -> Bool { lhs >= rhs }
+    static func ≤ (x: Self, y: Self) -> Bool { x <= y }
+    static func ≥ (x: Self, y: Self) -> Bool { x >= y }
+    static func ⋜ (x: Self, y: Self) -> Bool { x <= y }
+    static func ⋝ (x: Self, y: Self) -> Bool { x >= y }
     
-    static func ≨ (_ lhs: Self, _ rhs: Self) -> Bool { lhs < rhs && lhs != rhs }
-    static func ≩ (_ lhs: Self, _ rhs: Self) -> Bool { lhs > rhs && lhs != rhs }
+    static func ≨ (x: Self, y: Self) -> Bool { x < y && x != y }
+    static func ≩ (x: Self, y: Self) -> Bool { x > y && x != y }
     
-    static func ≮ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs < rhs) }
-    static func ≯ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs > rhs) }
+    static func ≮ (x: Self, y: Self) -> Bool { !(x < y) }
+    static func ≯ (x: Self, y: Self) -> Bool { !(x > y) }
     
-    static func ≰ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs < rhs) && !(lhs == rhs) }
-    static func ≱ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs > rhs) && !(lhs == rhs) }
+    static func ≰ (x: Self, y: Self) -> Bool { !(x < y) && !(x == y) }
+    static func ≱ (x: Self, y: Self) -> Bool { !(x > y) && !(x == y) }
     
-    static func ≶ (_ lhs: Self, _ rhs: Self) -> Bool { lhs < rhs || lhs > rhs }
-    static func ≷ (_ lhs: Self, _ rhs: Self) -> Bool { lhs > rhs || lhs < rhs }
+    static func ≶ (x: Self, y: Self) -> Bool { x < y || x > y }
+    static func ≷ (x: Self, y: Self) -> Bool { x > y || x < y }
     
-    static func ≸ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs < rhs) && !(lhs > rhs) }
-    static func ≹ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs > rhs) && !(lhs < rhs) }
+    static func ≸ (x: Self, y: Self) -> Bool { !(x < y) && !(x > y) }
+    static func ≹ (x: Self, y: Self) -> Bool { !(x > y) && !(x < y) }
     
-    static func ⋚ (_ lhs: Self, _ rhs: Self) -> Bool { lhs < rhs || lhs == rhs || lhs > rhs }
-    static func ⋛ (_ lhs: Self, _ rhs: Self) -> Bool { lhs > rhs || lhs == rhs || lhs < rhs }
+    static func ⋚ (x: Self, y: Self) -> Bool { x < y || x == y || x > y }
+    static func ⋛ (x: Self, y: Self) -> Bool { x > y || x == y || x < y }
     
     /// Returns a Boolean value indicating whether a value is between two
     /// values.
     ///
     /// - Parameters:
-    ///   - lhs: A value.
-    ///   - rhs: A tuple of values representing lower and upper bounds,
+    ///   - x: A value.
+    ///   - y: A tuple of values representing lower and upper bounds,
     ///     respectively.
-    static func ≬ (_ lhs: Self, _ rhs: (Self, Self)) -> Bool {
-        lhs > rhs.0 && lhs < rhs.1
+    static func ≬ (x: Self, y: (Self, Self)) -> Bool {
+        x > y.0 && x < y.1
     }
     
     /// Returns a Boolean value indicating whether a value is in a range
     /// of values.
     ///
     /// - Parameters:
-    ///   - lhs: A value.
-    ///   - rhs: A range of values.
-    static func ≬ (_ lhs: Self, _ rhs: Range<Self>) -> Bool {
-        rhs.contains(lhs)
+    ///   - x: A value.
+    ///   - y: A range of values.
+    static func ≬ (x: Self, y: Range<Self>) -> Bool {
+        y.contains(x)
     }
     
     /// Returns a Boolean value indicating whether a value is in a closed
     /// range of values.
     ///
     /// - Parameters:
-    ///   - lhs: A value.
-    ///   - rhs: A closed range of values.
-    static func ≬ (_ lhs: Self, _ rhs: ClosedRange<Self>) -> Bool {
-        rhs.contains(lhs)
+    ///   - x: A value.
+    ///   - y: A closed range of values.
+    static func ≬ (x: Self, y: ClosedRange<Self>) -> Bool {
+        y.contains(x)
     }
 }
