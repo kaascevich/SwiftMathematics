@@ -1,5 +1,6 @@
 disabled_rules:
     - comma # more annoying than helpful when aligning code
+    - identifier_name # doesn't play well with custom operators
     - line_length
     - todo # annoying
     - vertical_parameter_alignment_on_call # doesn't play well with trailing closures
@@ -63,7 +64,6 @@ opt_in_rules:
     - shorthand_optional_binding
     - single_test_class
     - sorted_first_last
-    - sorted_imports
     - strong_iboutlet
     - toggle_bool
     - trailing_closure

@@ -1,4 +1,4 @@
-// SwiftMathematics.swift
+// Equality.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -13,3 +13,19 @@
 //
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
+
+// MARK: - Operators
+
+infix operator ≠: ComparisonPrecedence
+
+infix operator ≈: ComparisonPrecedence
+infix operator ≉: ComparisonPrecedence
+
+// MARK: - Implementations
+
+public func ≠ <T: Equatable>(_ lhs: T, _ rhs: T) -> Bool { lhs != rhs }
+
+public func ≈ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool {
+    lhs == rhs || lhs.nextDown == rhs || lhs.nextUp == rhs
+}
+public func ≉ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool { !(lhs ≈ rhs) }
