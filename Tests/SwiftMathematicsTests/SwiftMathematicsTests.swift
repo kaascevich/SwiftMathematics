@@ -43,5 +43,29 @@ final class SwiftMathematicsSpec: QuickSpec {
                 expect(2 ≠ 3).to(beTrue())
             }
         }
+        
+        describe("roots") {
+            it("is a power") {
+                expect(3 ** 4).to(equal(81))
+                expect(5.2 ** 3.5).to(beCloseTo(320.6355723447))
+                expect(π ** π).to(beCloseTo(36.4621596072))
+            }
+            
+            it("is a square root") {
+                expect(√2).to(beCloseTo(1.414_213_562_373_095))
+                expect(√64).to(equal(8))
+            }
+            it("is a cube root") {
+                expect(∛8).to(equal(2))
+                expect(∛64).to(equal(4))
+            }
+            it("is a fourth root") {
+                expect(∜81).to(equal(3))
+            }
+            
+            it("is an arbitrary root") {
+                expect(π√π).to(beCloseTo(1.439_619_495_85))
+            }
+        }
     }
 }
