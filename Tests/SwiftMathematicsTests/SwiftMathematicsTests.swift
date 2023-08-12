@@ -42,6 +42,43 @@ final class SwiftMathematicsSpec: QuickSpec {
             it("is not equal") {
                 expect(2 ≠ 3).to(beTrue())
             }
+            
+            it("is almost equal") {
+                expect(2 ≈ 2).to(beTrue())
+                expect(2 ≈ 2.nextUp).to(beTrue())
+                expect(2 ≈ 2.nextDown).to(beTrue())
+                
+                expect(2 ≈ 3).to(beFalse())
+                expect(2 ≈ 2.nextUp.nextUp).to(beFalse())
+                expect(2 ≈ 2.nextDown.nextDown).to(beFalse())
+            }
+            
+            it("is not almost equal") {
+                expect(2 ≉ 2).to(beFalse())
+                expect(2 ≉ 2.nextUp).to(beFalse())
+                expect(2 ≉ 2.nextDown).to(beFalse())
+                
+                expect(2 ≉ 3).to(beTrue())
+                expect(2 ≉ 2.nextUp.nextUp).to(beTrue())
+                expect(2 ≉ 2.nextDown.nextDown).to(beTrue())
+            }
+            
+            it("is identical to") {
+                /// A simple class to test identicality with.
+                class SomeClass {
+                    init() { }
+                }
+                
+                let someObject = SomeClass()
+                let someReference = someObject
+                
+                expect(someObject ≡ someReference).to(beTrue())
+                expect(someObject ≢ someReference).to(beFalse())
+                
+                let someOtherObject = SomeClass()
+                expect(someOtherObject ≡ someObject).to(beFalse())
+                expect(someOtherObject ≢ someObject).to(beTrue())
+            }
         }
         
         describe("roots") {
@@ -96,7 +133,7 @@ final class SwiftMathematicsSpec: QuickSpec {
                 // to be identical to that of our own ± operator (save for the labels
                 // in the returned tuple, which don't count as part of the signature
                 // anyway as far as the compiler is concerned). So we cannot test that
-                //operator here. ∓ is fair game, though.
+                // operator here. ∓ is fair game, though.
                 expect(5 ∓ 3) == (2, 8)
             }
         }
