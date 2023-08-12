@@ -16,28 +16,28 @@
 
 // MARK: - Operators
 
-infix operator ≤: ComparisonPrecedence
-infix operator ≥: ComparisonPrecedence
-infix operator ⋜: ComparisonPrecedence
-infix operator ⋝: ComparisonPrecedence
+infix operator ≤ : ComparisonPrecedence
+infix operator ≥ : ComparisonPrecedence
+infix operator ⋜ : ComparisonPrecedence
+infix operator ⋝ : ComparisonPrecedence
 
-infix operator ≨: ComparisonPrecedence
-infix operator ≩: ComparisonPrecedence
+infix operator ≨ : ComparisonPrecedence
+infix operator ≩ : ComparisonPrecedence
 
-infix operator ≮: ComparisonPrecedence
-infix operator ≯: ComparisonPrecedence
-infix operator ≰: ComparisonPrecedence
-infix operator ≱: ComparisonPrecedence
+infix operator ≮ : ComparisonPrecedence
+infix operator ≯ : ComparisonPrecedence
+infix operator ≰ : ComparisonPrecedence
+infix operator ≱ : ComparisonPrecedence
 
-infix operator ≶: ComparisonPrecedence
-infix operator ≷: ComparisonPrecedence
-infix operator ≸: ComparisonPrecedence
-infix operator ≹: ComparisonPrecedence
+infix operator ≶ : ComparisonPrecedence
+infix operator ≷ : ComparisonPrecedence
+infix operator ≸ : ComparisonPrecedence
+infix operator ≹ : ComparisonPrecedence
 
-infix operator ⋚: ComparisonPrecedence
-infix operator ⋛: ComparisonPrecedence
+infix operator ⋚ : ComparisonPrecedence
+infix operator ⋛ : ComparisonPrecedence
 
-infix operator ≬: ComparisonPrecedence
+infix operator ≬:  ComparisonPrecedence
 
 // MARK: - Implementations
 

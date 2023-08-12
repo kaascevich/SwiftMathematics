@@ -49,6 +49,10 @@ final class SwiftMathematicsSpec: QuickSpec {
                 expect(3 ** 4).to(equal(81))
                 expect(5.2 ** 3.5).to(beCloseTo(320.6355723447))
                 expect(π ** π).to(beCloseTo(36.4621596072))
+                
+                var piToTheFifth = π
+                piToTheFifth **= 5
+                expect(piToTheFifth).to(beCloseTo(306.01968478528))
             }
             
             it("is a square root") {
@@ -65,6 +69,23 @@ final class SwiftMathematicsSpec: QuickSpec {
             
             it("is an arbitrary root") {
                 expect(π√π).to(beCloseTo(1.439_619_495_85))
+            }
+        }
+        
+        describe("arithmetic") {
+            it("is multiplication") {
+                expect(6 × 9).to(equal(54))
+                
+                var notTheAnswer = 6
+                notTheAnswer ×= 9
+                expect(notTheAnswer).to(equal(54))
+            }
+            it("is division") {
+                expect(7 ÷ 4).to(equal(1.75))
+                
+                var aRandomNumber = 7.0
+                aRandomNumber ÷= 4
+                expect(aRandomNumber).to(equal(1.75))
             }
         }
     }

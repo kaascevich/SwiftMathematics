@@ -24,17 +24,19 @@ precedencegroup PowerPrecedence {
 
 // Unfortunately, "^" is already taken by the standard library as the XOR
 // operator.
-infix operator **: PowerPrecedence
+infix operator ** : PowerPrecedence
+infix operator **= : AssignmentPrecedence
 
 prefix operator √
 prefix operator ∛
 prefix operator ∜
 
-infix operator √: PowerPrecedence
+infix operator √ : PowerPrecedence
 
 // MARK: - Implementations
 
 public func ** (_ base: Double, _ exponent: Double) -> Double { pow(base, exponent) }
+public func **= (_ base: inout Double, _ exponent: Double) { base = pow(base, exponent) }
 
 public prefix func √ <T: FloatingPoint>(_ value: T) -> T { value.squareRoot() }
 public prefix func ∛ (_ value: Double) -> Double { cbrt(value) }

@@ -1,4 +1,4 @@
-// Equality.swift
+// Arithmetic.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -16,16 +16,19 @@
 
 // MARK: - Operators
 
-infix operator ≠ : ComparisonPrecedence
+infix operator × : MultiplicationPrecedence
+infix operator ×= : AssignmentPrecedence
 
-infix operator ≈ : ComparisonPrecedence
-infix operator ≉ : ComparisonPrecedence
+infix operator ÷ : MultiplicationPrecedence
+infix operator ÷= : AssignmentPrecedence
 
 // MARK: - Implementations
 
-public func ≠ <T: Equatable>(_ lhs: T, _ rhs: T) -> Bool { lhs != rhs }
+public func × <T: BinaryInteger>(_ lhs: T, _ rhs: T) -> T { lhs * rhs }
+public func ×= <T: BinaryInteger>(_ lhs: inout T, _ rhs: T) { lhs *= rhs }
 
-public func ≈ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool {
-    lhs == rhs || lhs.nextDown == rhs || lhs.nextUp == rhs
-}
-public func ≉ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool { !(lhs ≈ rhs) }
+public func ÷ <T: BinaryInteger>(_ lhs: T, _ rhs: T) -> T { lhs / rhs }
+public func ÷= <T: BinaryInteger>(_ lhs: inout T, _ rhs: T) { lhs /= rhs }
+
+public func ÷ <T: BinaryFloatingPoint>(_ lhs: T, _ rhs: T) -> T { lhs / rhs }
+public func ÷= <T: BinaryFloatingPoint>(_ lhs: inout T, _ rhs: T) { lhs /= rhs }
