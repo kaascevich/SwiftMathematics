@@ -1,4 +1,4 @@
-// Powers.swift
+// Multiplication.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -14,26 +14,12 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
-precedencegroup PowerPrecedence {
-    higherThan: MultiplicationPrecedence
-}
-
 // MARK: - Operators
 
-// Unfortunately, "^" is already taken by the standard library as the XOR
-// operator.
-infix operator ** : PowerPrecedence
-infix operator **= : AssignmentPrecedence
+infix operator × : MultiplicationPrecedence
+infix operator ×= : AssignmentPrecedence
 
 // MARK: - Implementations
 
-public extension Double {
-    static func ** (_ base: Self, _ exponent: Self) -> Self {
-        pow(base, exponent)
-    }
-    static func **= (_ base: inout Self, _ exponent: Self) {
-        base = pow(base, exponent)
-    }
-}
+public func × <T: BinaryInteger>(_ lhs: T, _ rhs: T) -> T { lhs * rhs }
+public func ×= <T: BinaryInteger>(_ lhs: inout T, _ rhs: T) { lhs *= rhs }

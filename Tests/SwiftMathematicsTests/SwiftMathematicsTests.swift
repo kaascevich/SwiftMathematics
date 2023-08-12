@@ -87,6 +87,18 @@ final class SwiftMathematicsSpec: QuickSpec {
                 aRandomNumber ÷= 4
                 expect(aRandomNumber).to(equal(1.75))
             }
+            
+            it("is plus or minus") {
+                expect(±3) == (3, -3)
+                expect(∓3) == (-3, 3)
+                
+                // Nimble happens to have its own ± operator, and its signature happens
+                // to be identical to that of our own ± operator (save for the labels
+                // in the returned tuple, which don't count as part of the signature
+                // anyway as far as the compiler is concerned). So we cannot test that
+                //operator here. ∓ is fair game, though.
+                expect(5 ∓ 3) == (2, 8)
+            }
         }
     }
 }

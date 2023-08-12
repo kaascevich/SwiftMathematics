@@ -1,4 +1,4 @@
-// Powers.swift
+// Roots.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -16,24 +16,21 @@
 
 import Foundation
 
-precedencegroup PowerPrecedence {
-    higherThan: MultiplicationPrecedence
-}
-
 // MARK: - Operators
 
-// Unfortunately, "^" is already taken by the standard library as the XOR
-// operator.
-infix operator ** : PowerPrecedence
-infix operator **= : AssignmentPrecedence
+prefix operator √
+prefix operator ∛
+prefix operator ∜
+
+infix operator √ : PowerPrecedence
 
 // MARK: - Implementations
 
 public extension Double {
-    static func ** (_ base: Self, _ exponent: Self) -> Self {
-        pow(base, exponent)
-    }
-    static func **= (_ base: inout Self, _ exponent: Self) {
-        base = pow(base, exponent)
-    }
+    static prefix func √ (_ value: Self) -> Self { value.squareRoot() }
+    
+    static prefix func ∛ (_ value: Self) -> Self { cbrt(value) }
+    static prefix func ∜ (_ value: Self) -> Self { pow(value, 1/4) }
+    
+    static func √ (_ index: Self, _ radicand: Self) -> Self { pow(radicand, 1/index) }
 }

@@ -25,4 +25,4 @@ public let e = M_E
 public let ε = Double.ulpOfOne
 
 /// Phi, the golden ratio
-public let φ = (1 + 5.squareRoot()) / 2
+public let φ = (1 + √5) / 2

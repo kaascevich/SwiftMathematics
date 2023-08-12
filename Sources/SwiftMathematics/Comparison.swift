@@ -41,48 +41,58 @@ infix operator ≬:  ComparisonPrecedence
 
 // MARK: - Implementations
 
-public func ≤ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs <= rhs }
-public func ≥ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs >= rhs }
-public func ⋜ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs <= rhs }
-public func ⋝ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs >= rhs }
-
-public func ≨ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs < rhs && lhs != rhs }
-public func ≩ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs > rhs && lhs != rhs }
-
-public func ≮ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { !(lhs < rhs) }
-public func ≯ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { !(lhs > rhs) }
-public func ≰ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { !(lhs < rhs) && !(lhs == rhs) }
-public func ≱ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { !(lhs > rhs) && !(lhs == rhs) }
-
-public func ≶ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs < rhs || lhs > rhs }
-public func ≷ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs > rhs || lhs < rhs }
-public func ≸ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { !(lhs < rhs) && !(lhs > rhs) }
-public func ≹ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { !(lhs > rhs) && !(lhs < rhs) }
-
-public func ⋚ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs < rhs || lhs == rhs || lhs > rhs }
-public func ⋛ <T: Comparable>(_ lhs: T, _ rhs: T) -> Bool { lhs > rhs || lhs == rhs || lhs < rhs }
-
-/// Returns a Boolean value indicating whether a value is between two
-/// values.
-///
-/// - Parameters:
-///   - lhs: A value.
-///   - rhs: A tuple of values representing lower and upper bounds,
-///     respectively.
-public func ≬ <T: Comparable>(_ lhs: T, _ rhs: (T, T)) -> Bool { lhs > rhs.0 && lhs < rhs.1 }
-
-/// Returns a Boolean value indicating whether a value is in a range
-/// of values.
-///
-/// - Parameters:
-///   - lhs: A value.
-///   - rhs: A range of values.
-public func ≬ <T: Comparable>(_ lhs: T, _ rhs: Range<T>) -> Bool { rhs.contains(lhs) }
-
-/// Returns a Boolean value indicating whether a value is in a closed
-/// range of values.
-///
-/// - Parameters:
-///   - lhs: A value.
-///   - rhs: A closed range of values.
-public func ≬ <T: Comparable>(_ lhs: T, _ rhs: ClosedRange<T>) -> Bool { rhs.contains(lhs) }
+public extension Comparable {
+    static func ≤ (_ lhs: Self, _ rhs: Self) -> Bool { lhs <= rhs }
+    static func ≥ (_ lhs: Self, _ rhs: Self) -> Bool { lhs >= rhs }
+    static func ⋜ (_ lhs: Self, _ rhs: Self) -> Bool { lhs <= rhs }
+    static func ⋝ (_ lhs: Self, _ rhs: Self) -> Bool { lhs >= rhs }
+    
+    static func ≨ (_ lhs: Self, _ rhs: Self) -> Bool { lhs < rhs && lhs != rhs }
+    static func ≩ (_ lhs: Self, _ rhs: Self) -> Bool { lhs > rhs && lhs != rhs }
+    
+    static func ≮ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs < rhs) }
+    static func ≯ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs > rhs) }
+    
+    static func ≰ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs < rhs) && !(lhs == rhs) }
+    static func ≱ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs > rhs) && !(lhs == rhs) }
+    
+    static func ≶ (_ lhs: Self, _ rhs: Self) -> Bool { lhs < rhs || lhs > rhs }
+    static func ≷ (_ lhs: Self, _ rhs: Self) -> Bool { lhs > rhs || lhs < rhs }
+    
+    static func ≸ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs < rhs) && !(lhs > rhs) }
+    static func ≹ (_ lhs: Self, _ rhs: Self) -> Bool { !(lhs > rhs) && !(lhs < rhs) }
+    
+    static func ⋚ (_ lhs: Self, _ rhs: Self) -> Bool { lhs < rhs || lhs == rhs || lhs > rhs }
+    static func ⋛ (_ lhs: Self, _ rhs: Self) -> Bool { lhs > rhs || lhs == rhs || lhs < rhs }
+    
+    /// Returns a Boolean value indicating whether a value is between two
+    /// values.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value.
+    ///   - rhs: A tuple of values representing lower and upper bounds,
+    ///     respectively.
+    static func ≬ (_ lhs: Self, _ rhs: (Self, Self)) -> Bool {
+        lhs > rhs.0 && lhs < rhs.1
+    }
+    
+    /// Returns a Boolean value indicating whether a value is in a range
+    /// of values.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value.
+    ///   - rhs: A range of values.
+    static func ≬ (_ lhs: Self, _ rhs: Range<Self>) -> Bool {
+        rhs.contains(lhs)
+    }
+    
+    /// Returns a Boolean value indicating whether a value is in a closed
+    /// range of values.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value.
+    ///   - rhs: A closed range of values.
+    static func ≬ (_ lhs: Self, _ rhs: ClosedRange<Self>) -> Bool {
+        rhs.contains(lhs)
+    }
+}

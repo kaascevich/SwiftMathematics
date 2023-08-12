@@ -1,4 +1,4 @@
-// Arithmetic.swift
+// PlusMinus.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -16,19 +16,26 @@
 
 // MARK: - Operators
 
-infix operator × : MultiplicationPrecedence
-infix operator ×= : AssignmentPrecedence
+prefix operator ±
+prefix operator ∓
 
-infix operator ÷ : MultiplicationPrecedence
-infix operator ÷= : AssignmentPrecedence
+infix operator ± : AdditionPrecedence
+infix operator ∓ : AdditionPrecedence
 
 // MARK: - Implementations
 
-public func × <T: BinaryInteger>(_ lhs: T, _ rhs: T) -> T { lhs * rhs }
-public func ×= <T: BinaryInteger>(_ lhs: inout T, _ rhs: T) { lhs *= rhs }
-
-public func ÷ <T: BinaryInteger>(_ lhs: T, _ rhs: T) -> T { lhs / rhs }
-public func ÷= <T: BinaryInteger>(_ lhs: inout T, _ rhs: T) { lhs /= rhs }
-
-public func ÷ <T: BinaryFloatingPoint>(_ lhs: T, _ rhs: T) -> T { lhs / rhs }
-public func ÷= <T: BinaryFloatingPoint>(_ lhs: inout T, _ rhs: T) { lhs /= rhs }
+public extension SignedNumeric {
+    static prefix func ± (_ value: Self) -> (positive: Self, negative: Self) {
+        (+value, -value)
+    }
+    static prefix func ∓ (_ value: Self) -> (negative: Self, positive: Self) {
+        (-value, +value)
+    }
+    
+    static func ± (_ lhs: Self, _ rhs: Self) -> (added: Self, subtracted: Self) {
+        (lhs + rhs, lhs - rhs)
+    }
+    static func ∓ (_ lhs: Self, _ rhs: Self) -> (subtracted: Self, added: Self) {
+        (lhs - rhs, lhs + rhs)
+    }
+}

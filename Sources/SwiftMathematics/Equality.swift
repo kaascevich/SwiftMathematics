@@ -28,4 +28,6 @@ public func ≠ <T: Equatable>(_ lhs: T, _ rhs: T) -> Bool { lhs != rhs }
 public func ≈ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool {
     lhs == rhs || lhs.nextDown == rhs || lhs.nextUp == rhs
 }
-public func ≉ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool { !(lhs ≈ rhs) }
+public func ≉ <T: FloatingPoint>(_ lhs: T, _ rhs: T) -> Bool {
+    !(lhs ≈ rhs)
+}
