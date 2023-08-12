@@ -16,10 +16,32 @@
 
 import Quick
 import Nimble
-@testable import Mathematics
+@testable import SwiftMathematics
 
 final class SwiftMathematicsSpec: QuickSpec {
     override class func spec() {
+        describe("constants") {
+            it("is the golden ratio") {
+                expect(φ).to(beCloseTo(1.618_033_988_749_894))
+            }
+            it("is Euler's number") {
+                expect(e).to(beCloseTo(2.718_281_828_459_045))
+            }
+            it("is pi") {
+                expect(π).to(beCloseTo(3.141_592_653_589_793))
+            }
+            it("is tau, pi times 2") {
+                expect(τ).to(beCloseTo(6.283_185_307_179_586))
+            }
+            it("is machine epsilon, the ulp of one") {
+                expect(ε).to(beCloseTo(2.220_446_049_250e-16))
+            }
+        }
         
+        describe("equality") {
+            it("is not equal") {
+                expect(2 ≠ 3).to(beTrue())
+            }
+        }
     }
 }
