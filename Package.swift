@@ -91,7 +91,7 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "SwiftMathematicsTests",
+            name: "SwiftMathematicsSpecs",
             dependencies: [
                 .target(
                     name: "SwiftMathematics"

@@ -29,7 +29,7 @@ infix operator ≢ : ComparisonPrecedence
 public func ≠ <T: Equatable>(x: T, y: T) -> Bool { x != y }
 
 public func ≈ <T: FloatingPoint>(x: T, y: T) -> Bool {
-    x == y 
+    x == y
     || x.nextDown == y
     || x.nextUp == y
 }

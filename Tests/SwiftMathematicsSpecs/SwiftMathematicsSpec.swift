@@ -117,12 +117,18 @@ final class SwiftMathematicsSpec: QuickSpec {
                 notTheAnswer ×= 9
                 expect(notTheAnswer).to(equal(54))
             }
-            it("is division") {
-                expect(7 ÷ 4).to(equal(1.75))
-                
-                var aRandomNumber = 7.0
-                aRandomNumber ÷= 4
-                expect(aRandomNumber).to(equal(1.75))
+            
+            describe("division") {
+                it("is division") {
+                    expect(7 ÷ 4).to(equal(1.75))
+                    
+                    var aRandomNumber = 7.0
+                    aRandomNumber ÷= 4
+                    expect(aRandomNumber).to(equal(1.75))
+                }
+                it("divides into something else evenly") {
+                    
+                }
             }
             
             it("is plus or minus") {

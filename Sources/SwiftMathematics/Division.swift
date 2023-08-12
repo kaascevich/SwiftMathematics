@@ -14,23 +14,72 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+precedencegroup DividesEvenlyPrecedence {
+    higherThan: ComparisonPrecedence
+}
+
 // MARK: - Operators
 
 infix operator ÷ : MultiplicationPrecedence
 infix operator ÷= : AssignmentPrecedence
 
+infix operator ∣ : DividesEvenlyPrecedence
+infix operator ∤ : DividesEvenlyPrecedence
+
 // MARK: - Implementations
 
-public func ÷ <T: BinaryInteger>(x: T, y: T) -> T {
-    x / y
-}
-public func ÷ <T: BinaryFloatingPoint>(x: T, y: T) -> T {
-    x / y
+public extension BinaryInteger {
+    static func ÷ (x: Self, y: Self) -> Self {
+        x / y
+    }
+    
+    static func ÷= (x: inout Self, y: Self) {
+        x /= y
+    }
+    
+    /// Returns whether `x` divides into `y` without a remainder.
+    ///
+    /// - Parameters:
+    ///   - x: A number.
+    ///   - y: A number to be divided by the first number.
+    static func ∣ (x: Self, y: Self) -> Bool {
+        x.quotientAndRemainder(dividingBy: y).remainder == 0
+    }
+    
+    /// Returns whether `x` does not divide into `y` without a remainder.
+    ///
+    /// - Parameters:
+    ///   - x: A number.
+    ///   - y: A number to be divided by the first number.
+    static func ∤ (x: Self, y: Self) -> Bool {
+        x.quotientAndRemainder(dividingBy: y).remainder != 0
+    }
 }
 
-public func ÷= <T: BinaryInteger>(x: inout T, y: T) {
-    x /= y
-}
-public func ÷= <T: BinaryFloatingPoint>(x: inout T, y: T) {
-    x /= y
+public extension FloatingPoint {
+    static func ÷ (x: Self, y: Self) -> Self {
+        x / y
+    }
+    
+    static func ÷= (x: inout Self, y: Self) {
+        x /= y
+    }
+    
+    /// Returns whether `x` divides into `y` without a remainder.
+    ///
+    /// - Parameters:
+    ///   - x: A number.
+    ///   - y: A number to be divided by the first number.
+    static func ∣ (x: Self, y: Self) -> Bool {
+        x.remainder(dividingBy: y) == 0
+    }
+    
+    /// Returns whether `x` does not divide into `y` without a remainder.
+    ///
+    /// - Parameters:
+    ///   - x: A number.
+    ///   - y: A number to be divided by the first number.
+    static func ∤ (x: Self, y: Self) -> Bool {
+        x.remainder(dividingBy: y) != 0
+    }
 }
