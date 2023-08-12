@@ -23,9 +23,6 @@ precedencegroup DividesEvenlyPrecedence {
 infix operator ÷ : MultiplicationPrecedence
 infix operator ÷= : AssignmentPrecedence
 
-infix operator ∣ : DividesEvenlyPrecedence
-infix operator ∤ : DividesEvenlyPrecedence
-
 // MARK: - Implementations
 
 public extension BinaryInteger {
@@ -36,24 +33,6 @@ public extension BinaryInteger {
     static func ÷= (x: inout Self, y: Self) {
         x /= y
     }
-    
-    /// Returns whether `x` divides into `y` without a remainder.
-    ///
-    /// - Parameters:
-    ///   - x: A number.
-    ///   - y: A number to be divided by the first number.
-    static func ∣ (x: Self, y: Self) -> Bool {
-        x.quotientAndRemainder(dividingBy: y).remainder == 0
-    }
-    
-    /// Returns whether `x` does not divide into `y` without a remainder.
-    ///
-    /// - Parameters:
-    ///   - x: A number.
-    ///   - y: A number to be divided by the first number.
-    static func ∤ (x: Self, y: Self) -> Bool {
-        x.quotientAndRemainder(dividingBy: y).remainder != 0
-    }
 }
 
 public extension FloatingPoint {
@@ -63,23 +42,5 @@ public extension FloatingPoint {
     
     static func ÷= (x: inout Self, y: Self) {
         x /= y
-    }
-    
-    /// Returns whether `x` divides into `y` without a remainder.
-    ///
-    /// - Parameters:
-    ///   - x: A number.
-    ///   - y: A number to be divided by the first number.
-    static func ∣ (x: Self, y: Self) -> Bool {
-        x.remainder(dividingBy: y) == 0
-    }
-    
-    /// Returns whether `x` does not divide into `y` without a remainder.
-    ///
-    /// - Parameters:
-    ///   - x: A number.
-    ///   - y: A number to be divided by the first number.
-    static func ∤ (x: Self, y: Self) -> Bool {
-        x.remainder(dividingBy: y) != 0
     }
 }

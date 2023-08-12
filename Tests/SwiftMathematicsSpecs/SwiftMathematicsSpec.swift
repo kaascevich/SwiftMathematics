@@ -1,4 +1,4 @@
-// SwiftMathematicsTests.swift
+// SwiftMathematicsSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -113,21 +113,18 @@ final class SwiftMathematicsSpec: QuickSpec {
             it("is multiplication") {
                 expect(6 × 9).to(equal(54))
                 
-                var notTheAnswer = 6
-                notTheAnswer ×= 9
-                expect(notTheAnswer).to(equal(54))
+                var someNumber = 6
+                someNumber ×= 9
+                expect(someNumber).to(equal(54))
             }
             
             describe("division") {
                 it("is division") {
                     expect(7 ÷ 4).to(equal(1.75))
                     
-                    var aRandomNumber = 7.0
-                    aRandomNumber ÷= 4
-                    expect(aRandomNumber).to(equal(1.75))
-                }
-                it("divides into something else evenly") {
-                    
+                    var someNumber = 7.0
+                    someNumber ÷= 4
+                    expect(someNumber).to(equal(1.75))
                 }
             }
             
