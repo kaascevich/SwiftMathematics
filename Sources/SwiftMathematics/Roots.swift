@@ -27,10 +27,48 @@ infix operator √ : PowerPrecedence
 // MARK: - Implementations
 
 public extension Double {
+    /// Returns the square root of the given number, rounded to a representable
+    /// value.
+    ///
+    /// The following example declares a function that calculates the length of
+    /// the hypotenuse of a right triangle given its two perpendicular sides.
+    ///
+    ///     func hypotenuse(_ a: Double, _ b: Double) -> Double {
+    ///         return √(a * a + b * b)
+    ///     }
+    ///
+    ///     let (dx, dy) = (3.0, 4.0)
+    ///     let distance = hypotenuse(dx, dy)
+    ///     // distance == 5.0
+    ///
+    /// - Parameter x: The value to calculate the square root of.
+    ///
+    /// - Returns: The square root of the value.
     static prefix func √ (x: Self) -> Self { x.squareRoot() }
     
+    /// Returns the cube root of the given number, rounded to a representable
+    /// value.
+    ///
+    /// - Parameter x: The value to calculate the cube root of.
+    ///
+    /// - Returns: The cube root of the value.
     static prefix func ∛ (x: Self) -> Self { cbrt(x) }
-    static prefix func ∜ (x: Self) -> Self { pow(x, 1/4) }
     
+    /// Returns the fourth root of the given number, rounded to a representable
+    /// value.
+    ///
+    /// - Parameter x: The value to calculate the fourth root of.
+    ///
+    /// - Returns: The fourth root of the value.
+    static prefix func ∜ (x: Self) -> Self { pow(x, 1/4) }
+        
+    /// Returns an arbitrary root of the given radicand, rounded to a representable
+    /// value.
+    ///
+    /// - Parameters:
+    ///   - index: The index of the root.
+    ///   - radicand: The value to calculate the root of.
+    ///
+    /// - Returns: The root of the radicand.
     static func √ (index: Self, radicand: Self) -> Self { pow(radicand, 1/index) }
 }

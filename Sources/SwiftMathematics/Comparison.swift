@@ -105,15 +105,73 @@ public extension Comparable {
     ///   - y: Another value to compare.
     static func ≯ (x: Self, y: Self) -> Bool { !(x > y) }
     
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is neither less than nor equal to that of the second
+    /// argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≰ (x: Self, y: Self) -> Bool { !(x < y) && !(x == y) }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is neither greater than nor equal to that of the second
+    /// argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≱ (x: Self, y: Self) -> Bool { !(x > y) && !(x == y) }
     
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is less than or greater than that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≶ (x: Self, y: Self) -> Bool { x < y || x > y }
-    static func ≷ (x: Self, y: Self) -> Bool { x > y || x < y }
     
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is greater than or less than that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
+    static func ≷ (x: Self, y: Self) -> Bool { x > y || x < y }
+
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is neither less than nor greater than that of the second
+    /// argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≸ (x: Self, y: Self) -> Bool { !(x < y) && !(x > y) }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is neither greater than nor less than that of the second
+    /// argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≹ (x: Self, y: Self) -> Bool { !(x > y) && !(x < y) }
     
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is less than, equal to, or greater than that of the second
+    /// argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ⋚ (x: Self, y: Self) -> Bool { x < y || x == y || x > y }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is greater than, equal to, or less than that of the second
+    /// argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ⋛ (x: Self, y: Self) -> Bool { x > y || x == y || x < y }
 }
