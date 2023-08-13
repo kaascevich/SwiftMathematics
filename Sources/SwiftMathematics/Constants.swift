@@ -16,13 +16,50 @@
 
 import Foundation
 
+/// The mathematical constant pi (π), approximately equal to 3.14159.
+///
+/// When measuring an angle in radians, π is equivalent to a half-turn.
+///
+/// This value is rounded toward zero to keep user computations with angles
+/// from inadvertently ending up in the wrong quadrant.
+///
+///     print(π)
+///     // Prints "3.1415926535897931"
 public let π = Double.pi
+
+/// The mathematical constant tau (τ), approximately equal to 6.28319.
+///
+/// When measuring an angle in radians, τ is equivalent to a full turn, or
+/// 2π.
+///
+/// This value is rounded toward zero to keep user computations with angles
+/// from inadvertently ending up in the wrong quadrant.
+///
+///     print(τ)
+///     // Prints "6.2831853071795862"
 public let τ = Double.pi * 2
 
+/// Euler's number (e), approximately equal to 2.71828.
 public let e = M_E
 
-/// Machine epsilon
-public let ε = Double.ulpOfOne
+/// The least positive number.
+///
+/// This value compares less than or equal to all positive numbers, but
+/// greater than zero.
+public let ε = Double.leastNonzeroMagnitude
 
-/// Phi, the golden ratio
+/// The mathematical constant phi (φ), approximately equal to 1.61803.
+///
+/// Phi is also known as the golden ratio.
 public let φ = (1 + √5) / 2
+
+/// Positive infinity.
+///
+/// Infinity compares greater than all finite numbers and equal to other
+/// infinite values.
+///
+///     let x = Double.greatestFiniteMagnitude
+///     let y = x * 2
+///     // y == infinity
+///     // y > x
+public let infinity = Double.infinity

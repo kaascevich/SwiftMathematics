@@ -37,20 +37,72 @@ infix operator ≹ : ComparisonPrecedence
 infix operator ⋚ : ComparisonPrecedence
 infix operator ⋛ : ComparisonPrecedence
 
-infix operator ≬:  ComparisonPrecedence
-
 // MARK: - Implementations
 
 public extension Comparable {
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is less than or equal to that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≤ (x: Self, y: Self) -> Bool { x <= y }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is greater than or equal to that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≥ (x: Self, y: Self) -> Bool { x >= y }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is equal to or less than that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ⋜ (x: Self, y: Self) -> Bool { x <= y }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is equal to or greater than that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ⋝ (x: Self, y: Self) -> Bool { x >= y }
     
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is less than, but not equal to, that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≨ (x: Self, y: Self) -> Bool { x < y && x != y }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is greater than, but not equal to, that of the second
+    /// argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≩ (x: Self, y: Self) -> Bool { x > y && x != y }
     
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is not less than that of the second argument.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≮ (x: Self, y: Self) -> Bool { !(x < y) }
+    
+    /// Returns a Boolean value indicating whether the value of the first
+    /// argument is not greater than that of the second argument.
+    /// 
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     static func ≯ (x: Self, y: Self) -> Bool { !(x > y) }
     
     static func ≰ (x: Self, y: Self) -> Bool { !(x < y) && !(x == y) }
@@ -64,35 +116,4 @@ public extension Comparable {
     
     static func ⋚ (x: Self, y: Self) -> Bool { x < y || x == y || x > y }
     static func ⋛ (x: Self, y: Self) -> Bool { x > y || x == y || x < y }
-    
-    /// Returns a Boolean value indicating whether a value is between two
-    /// values.
-    ///
-    /// - Parameters:
-    ///   - x: A value.
-    ///   - y: A tuple of values representing lower and upper bounds,
-    ///     respectively.
-    static func ≬ (x: Self, y: (Self, Self)) -> Bool {
-        x > y.0 && x < y.1
-    }
-    
-    /// Returns a Boolean value indicating whether a value is in a range
-    /// of values.
-    ///
-    /// - Parameters:
-    ///   - x: A value.
-    ///   - y: A range of values.
-    static func ≬ (x: Self, y: Range<Self>) -> Bool {
-        y.contains(x)
-    }
-    
-    /// Returns a Boolean value indicating whether a value is in a closed
-    /// range of values.
-    ///
-    /// - Parameters:
-    ///   - x: A value.
-    ///   - y: A closed range of values.
-    static func ≬ (x: Self, y: ClosedRange<Self>) -> Bool {
-        y.contains(x)
-    }
 }

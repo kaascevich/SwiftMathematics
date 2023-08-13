@@ -26,15 +26,30 @@ infix operator ≢ : ComparisonPrecedence
 
 // MARK: - Implementations
 
-public func ≠ <T: Equatable>(x: T, y: T) -> Bool { x != y }
-
-public func ≈ <T: FloatingPoint>(x: T, y: T) -> Bool {
-    x == y
-    || x.nextDown == y
-    || x.nextUp == y
+public extension Equatable {
+    /// Returns a Boolean value indicating whether two values are not equal.
+    ///
+    /// Inequality is the inverse of equality. For any values `x` and `y`, `x ≠ y`
+    /// implies that `x == y` is `false`.
+    ///
+    /// This is the default implementation of the not-equal-to operator (`≠`)
+    /// for any type that conforms to `Equatable`.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
+    static func ≠ (x: Self, y: Self) -> Bool { x != y }
 }
-public func ≉ <T: FloatingPoint>(x: T, y: T) -> Bool {
-    !(x ≈ y)
+
+public extension FloatingPoint {
+    static func ≈ (x: Self, y: Self) -> Bool {
+        x == y
+        || x.nextDown == y
+        || x.nextUp == y
+    }
+    static func ≉ (x: Self, y: Self) -> Bool {
+        !(x ≈ y)
+    }
 }
 
 public func ≡ (x: AnyObject?, y: AnyObject?) -> Bool { x === y }

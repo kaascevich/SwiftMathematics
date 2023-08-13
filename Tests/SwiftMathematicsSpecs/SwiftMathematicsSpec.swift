@@ -22,19 +22,19 @@ final class SwiftMathematicsSpec: QuickSpec {
     override class func spec() {
         describe("constants") {
             it("is the golden ratio") {
-                expect(φ).to(beCloseTo(1.618_033_988_749_894))
+                expect(φ).to(equal(1.618_033_988_749_894_9))
             }
             it("is Euler's number") {
-                expect(e).to(beCloseTo(2.718_281_828_459_045))
+                expect(e).to(equal(2.718_281_828_459_045_1))
             }
             it("is pi") {
-                expect(π).to(beCloseTo(3.141_592_653_589_793))
+                expect(π).to(equal(3.141_592_653_589_793_1))
             }
             it("is tau, pi times 2") {
-                expect(τ).to(beCloseTo(6.283_185_307_179_586))
+                expect(τ).to(equal(6.283_185_307_179_586_2))
             }
             it("is machine epsilon, the ulp of one") {
-                expect(ε).to(beCloseTo(2.220_446_049_250e-16))
+                expect(ε).to(equal(4.940_656_458_412_465_4e-324))
             }
         }
         
@@ -48,9 +48,9 @@ final class SwiftMathematicsSpec: QuickSpec {
                 expect(2 ≈ 2.nextUp).to(beTrue())
                 expect(2 ≈ 2.nextDown).to(beTrue())
                 
-                expect(2 ≈ 3).to(beFalse())
-                expect(2 ≈ 2.nextUp.nextUp).to(beFalse())
-                expect(2 ≈ 2.nextDown.nextDown).to(beFalse())
+                expect(2 ≈ 3).toNot(beTrue())
+                expect(2 ≈ 2.nextUp.nextUp).toNot(beTrue())
+                expect(2 ≈ 2.nextDown.nextDown).toNot(beTrue())
             }
             
             it("is not almost equal") {
@@ -58,9 +58,9 @@ final class SwiftMathematicsSpec: QuickSpec {
                 expect(2 ≉ 2.nextUp).to(beFalse())
                 expect(2 ≉ 2.nextDown).to(beFalse())
                 
-                expect(2 ≉ 3).to(beTrue())
-                expect(2 ≉ 2.nextUp.nextUp).to(beTrue())
-                expect(2 ≉ 2.nextDown.nextDown).to(beTrue())
+                expect(2 ≉ 3).toNot(beFalse())
+                expect(2 ≉ 2.nextUp.nextUp).toNot(beFalse())
+                expect(2 ≉ 2.nextDown.nextDown).toNot(beFalse())
             }
             
             it("is identical to") {
@@ -76,24 +76,24 @@ final class SwiftMathematicsSpec: QuickSpec {
                 expect(someObject ≢ someReference).to(beFalse())
                 
                 let someOtherObject = SomeClass()
-                expect(someOtherObject ≡ someObject).to(beFalse())
-                expect(someOtherObject ≢ someObject).to(beTrue())
+                expect(someOtherObject ≡ someObject).toNot(beTrue())
+                expect(someOtherObject ≢ someObject).toNot(beFalse())
             }
         }
         
         describe("roots") {
             it("is a power") {
                 expect(3 ** 4).to(equal(81))
-                expect(5.2 ** 3.5).to(beCloseTo(320.6355723447))
-                expect(π ** π).to(beCloseTo(36.4621596072))
+                expect(5.2 ** 3.5).to(equal(320.635_572_344_679_25))
+                expect(π ** π).to(equal(36.462_159_607_207_902))
                 
                 var piToTheFifth = π
                 piToTheFifth **= 5
-                expect(piToTheFifth).to(beCloseTo(306.01968478528))
+                expect(piToTheFifth).to(equal(306.019_684_785_281_41))
             }
             
             it("is a square root") {
-                expect(√2).to(beCloseTo(1.414_213_562_373_095))
+                expect(√2).to(equal(1.414_213_562_373_095_1))
                 expect(√64).to(equal(8))
             }
             it("is a cube root") {
@@ -105,7 +105,7 @@ final class SwiftMathematicsSpec: QuickSpec {
             }
             
             it("is an arbitrary root") {
-                expect(π√π).to(beCloseTo(1.439_619_495_85))
+                expect(π√π).to(equal(1.439_619_495_847_590_7))
             }
         }
         
@@ -126,11 +126,17 @@ final class SwiftMathematicsSpec: QuickSpec {
                     someNumber ÷= 4
                     expect(someNumber).to(equal(1.75))
                 }
+                
+                it("is a percentage") {
+                    expect(42%).to(equal(0.42))
+                    expect(23.4%).to(equal(0.234))
+                    expect(314%).to(equal(3.14))
+                }
             }
             
             it("is plus or minus") {
-                expect(±3) == (3, -3)
-                expect(∓3) == (-3, 3)
+                expect(±3) == (+3, -3)
+                expect(∓3) == (-3, +3)
                 
                 // Nimble happens to have its own ± operator, and its signature happens
                 // to be identical to that of our own ± operator (save for the labels
