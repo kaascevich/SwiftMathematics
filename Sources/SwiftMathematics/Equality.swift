@@ -42,11 +42,20 @@ public extension Equatable {
 }
 
 public extension FloatingPoint {
+    /// Returns a Boolean value indicating whether the left-hand value
+    /// approximately equals the right-hand value.
+    ///
+    /// This operator returns `true` if `y` is between
+    /// `x.nextDown` and `x.nextUp`.
     static func ≈ (x: Self, y: Self) -> Bool {
-        x == y
-        || x.nextDown == y
-        || x.nextUp == y
+        (x.nextDown...x.nextUp).contains(y)
     }
+    
+    /// Returns a Boolean value indicating whether the left-hand value
+    /// does not approximately equal the right-hand value.
+    ///
+    /// This operator returns `false` if `y` is between
+    /// `x.nextDown` and `x.nextUp`.
     static func ≉ (x: Self, y: Self) -> Bool {
         !(x ≈ y)
     }
