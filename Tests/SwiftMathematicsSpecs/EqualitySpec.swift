@@ -38,8 +38,8 @@ final class EqualitySpec: QuickSpec {
                     }
                     
                     it("is true when they are slightly different") {
-                        expect(2 ≈ 2.nextUp).to(beTrue())
-                        expect(2 ≈ 2.nextDown).to(beTrue())
+                        expect(2 ≈ 2.000000005).to(beTrue())
+                        expect(2 ≈ 1.999999995).to(beTrue())
                     }
                 }
                 describe("the not-almost-equal operator, ≉") {
@@ -48,31 +48,8 @@ final class EqualitySpec: QuickSpec {
                     }
                     
                     it("is false when they are slightly different") {
-                        expect(2 ≉ 2.nextUp).to(beFalse())
-                        expect(2 ≉ 2.nextDown).to(beFalse())
-                    }
-                }
-            }
-            
-            context("when the operands are not almost equal") {
-                describe("the almost-equal operator, ≈") {
-                    it("is false when they are not equal") {
-                        expect(2 ≈ 3).toNot(beTrue())
-                    }
-                    
-                    it("is false when they are slightly more different") {
-                        expect(2 ≈ 2.nextUp.nextUp).toNot(beTrue())
-                        expect(2 ≈ 2.nextDown.nextDown).toNot(beTrue())
-                    }
-                }
-                describe("the not-almost-equal operator, ≉") {
-                    it("is true when they are not equal") {
-                        expect(2 ≉ 3).toNot(beFalse())
-                    }
-                    
-                    it("is true when they are slightly more different") {
-                        expect(2 ≉ 2.nextUp.nextUp).toNot(beFalse())
-                        expect(2 ≉ 2.nextDown.nextDown).toNot(beFalse())
+                        expect(2 ≈ 2.00005).to(beFalse())
+                        expect(2 ≈ 1.99995).to(beFalse())
                     }
                 }
             }

@@ -37,10 +37,6 @@ final class ConstantsSpec: QuickSpec {
                 expect(τ).to(equal(6.283_185_307_179_586_2))
             }
             
-            it("is epsilon, a very small value, ε") {
-                expect(ε).to(equal(4.940_656_458_412_465_4e-324))
-            }
-            
             it("is infinity") {
                 expect(infinity).to(equal(.infinity))
             }

@@ -42,12 +42,6 @@ public let τ = Double.pi * 2
 /// Euler's number (e), approximately equal to 2.71828.
 public let e = M_E
 
-/// The least positive number.
-///
-/// This value compares less than or equal to all positive numbers, but
-/// greater than zero.
-public let ε = Double.leastNonzeroMagnitude
-
 /// The mathematical constant phi (φ), approximately equal to 1.61803.
 ///
 /// Phi is also known as the golden ratio.

@@ -44,7 +44,7 @@ public extension Double {
     /// - Parameter x: The value to calculate the square root of.
     ///
     /// - Returns: The square root of the value.
-    static prefix func √ (x: Self) -> Self { x.squareRoot() }
+    static prefix func √ (x: Self) -> Self { sqrt(x) }
     
     /// Returns the cube root of the given number, rounded to a representable
     /// value.
@@ -60,7 +60,7 @@ public extension Double {
     /// - Parameter x: The value to calculate the fourth root of.
     ///
     /// - Returns: The fourth root of the value.
-    static prefix func ∜ (x: Self) -> Self { pow(x, 1/4) }
+    static prefix func ∜ (x: Self) -> Self { root(x, 4) }
         
     /// Returns an arbitrary root of the given radicand, rounded to a representable
     /// value.
