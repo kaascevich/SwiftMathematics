@@ -46,6 +46,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≤ (x: Self, y: Self) -> Bool { x <= y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -54,6 +56,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≥ (x: Self, y: Self) -> Bool { x >= y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -62,6 +66,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ⋜ (x: Self, y: Self) -> Bool { x <= y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -70,6 +76,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ⋝ (x: Self, y: Self) -> Bool { x >= y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -78,6 +86,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≨ (x: Self, y: Self) -> Bool { x < y && x != y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -87,6 +97,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≩ (x: Self, y: Self) -> Bool { x > y && x != y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -95,6 +107,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≮ (x: Self, y: Self) -> Bool { !(x < y) }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -103,6 +117,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≯ (x: Self, y: Self) -> Bool { !(x > y) }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -112,6 +128,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≰ (x: Self, y: Self) -> Bool { !(x < y) && !(x == y) }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -121,6 +139,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≱ (x: Self, y: Self) -> Bool { !(x > y) && !(x == y) }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -129,6 +149,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≶ (x: Self, y: Self) -> Bool { x < y || x > y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -137,6 +159,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≷ (x: Self, y: Self) -> Bool { x > y || x < y }
 
     /// Returns a Boolean value indicating whether the value of the first
@@ -146,6 +170,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≸ (x: Self, y: Self) -> Bool { !(x < y) && !(x > y) }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -155,6 +181,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ≹ (x: Self, y: Self) -> Bool { !(x > y) && !(x < y) }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -164,6 +192,8 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ⋚ (x: Self, y: Self) -> Bool { x < y || x == y || x > y }
     
     /// Returns a Boolean value indicating whether the value of the first
@@ -173,5 +203,7 @@ public extension Comparable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: The result of the comparison.
     static func ⋛ (x: Self, y: Self) -> Bool { x > y || x == y || x < y }
 }

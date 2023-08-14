@@ -42,6 +42,8 @@ public extension Numeric {
     /// - Parameters:
     ///   - x: The first value to multiply.
     ///   - y: The second value to multiply.
+    ///
+    /// - Returns: The result of the multiplication.
     static func × (x: Self, y: Self) -> Self { x * y }
     
     /// Multiplies two values and stores the result in the left-hand-side

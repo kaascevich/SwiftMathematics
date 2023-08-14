@@ -38,6 +38,8 @@ public extension Equatable {
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
+    ///
+    /// - Returns: Whether the values are not equal.
     static func ≠ (x: Self, y: Self) -> Bool { x != y }
 }
 
@@ -47,6 +49,8 @@ public extension FloatingPoint {
     ///
     /// This operator's tolerance is `Self.ulpOfOne.squareRoot()`.
     /// `x.nextDown` and `x.nextUp`.
+    ///
+    /// - Returns: Whether the values are approximately equal.
     static func ≈ (x: Self, y: Self) -> Bool {
         x.isApproximatelyEqual(to: y)
     }
@@ -55,7 +59,12 @@ public extension FloatingPoint {
     /// does not approximately equal the right-hand value.
     ///
     /// This operator's tolerance is `Self.ulpOfOne.squareRoot()`.
-    /// `x.nextDown` and `x.nextUp`.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
+    ///
+    /// - Returns: Whether the values are not approximately equal.
     static func ≉ (x: Self, y: Self) -> Bool {
         !x.isApproximatelyEqual(to: y)
     }
@@ -107,6 +116,8 @@ public extension FloatingPoint {
 /// - Parameters:
 ///   - x: A reference to compare.
 ///   - y: Another reference to compare.
+///
+/// - Returns: Whether the references point to the same instance.
 public func ≡ (x: AnyObject?, y: AnyObject?) -> Bool { x === y }
 
 /// Returns a Boolean value indicating whether two references point to
@@ -119,4 +130,6 @@ public func ≡ (x: AnyObject?, y: AnyObject?) -> Bool { x === y }
 /// - Parameters:
 ///   - x: A reference to compare.
 ///   - y: Another reference to compare.
+///
+/// - Returns: Whether the references do not point to the same instance.
 public func ≢ (x: AnyObject?, y: AnyObject?) -> Bool { x !== y }

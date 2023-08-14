@@ -34,6 +34,8 @@ public extension BinaryInteger {
     /// - Parameters:
     ///   - x: The value to divide.
     ///   - y: The value to divide `x` by. `y` must not be zero.
+    ///
+    /// - Returns: The quotient.
     static func ÷ (x: Self, y: Self) -> Self {
         x / y
     }
@@ -61,6 +63,8 @@ public extension BinaryInteger {
     ///
     /// - Parameters:
     ///   - x: The value to divide by 100.
+    ///
+    /// - Returns: `x` divided by 100.
     static postfix func % <T: FloatingPoint>(x: Self) -> T {
         T(x) / 100
     }
@@ -89,6 +93,8 @@ public extension FloatingPoint {
     /// - Parameters:
     ///   - x: The value to divide.
     ///   - y: The value to divide `x` by.
+    ///
+    /// - Returns: The quotient.
     static func ÷ (x: Self, y: Self) -> Self {
         x / y
     }
@@ -110,6 +116,8 @@ public extension FloatingPoint {
     ///
     /// - Parameters:
     ///   - x: The value to divide by 100.
+    ///
+    /// - Returns: `x` divided by 100.
     static postfix func % (x: Self) -> Self {
         x / 100
     }
