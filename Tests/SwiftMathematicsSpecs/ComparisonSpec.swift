@@ -41,5 +41,117 @@ final class ComparisonSpec: QuickSpec {
                 expect(y ≥ y) == true
             }
         }
+        
+        describe("the ⋜ and ⋝ operators") {
+            it("is the equal-to-or-less-than operator, ⋜") {
+                expect(x ⋜ x) == true
+                expect(x ⋜ y) == true
+                expect(y ⋜ x) == false
+                expect(y ⋜ y) == true
+            }
+            
+            it("is the equal-to-or-greater-than operator, ⋝") {
+                expect(x ⋝ x) == true
+                expect(x ⋝ y) == false
+                expect(y ⋝ x) == true
+                expect(y ⋝ y) == true
+            }
+        }
+        
+        describe("the ≨ and ≩ operators") {
+            it("is the less-than-but-not-equal-to operator, ≨") {
+                expect(x ≨ x) == false
+                expect(x ≨ y) == true
+                expect(y ≨ x) == false
+                expect(y ≨ y) == false
+            }
+            
+            it("is the greater-than-but-not-equal-to operator, ≩") {
+                expect(x ≩ x) == false
+                expect(x ≩ y) == false
+                expect(y ≩ x) == true
+                expect(y ≩ y) == false
+            }
+        }
+        
+        describe("the ≮ and ≯ operators") {
+            it("is the not-less-than operator, ≮") {
+                expect(x ≮ x) == true
+                expect(x ≮ y) == false
+                expect(y ≮ x) == true
+                expect(y ≮ y) == true
+            }
+            
+            it("is the not-greater-than operator, ≯") {
+                expect(x ≯ x) == true
+                expect(x ≯ y) == true
+                expect(y ≯ x) == false
+                expect(y ≯ y) == true
+            }
+        }
+        
+        describe("the ≰ and ≱ operators") {
+            it("is the not-less-than-or-equal-to operator, ≰") {
+                expect(x ≰ x) == false
+                expect(x ≰ y) == false
+                expect(y ≰ x) == true
+                expect(y ≰ y) == false
+            }
+            
+            it("is the not-greater-than-or-equal-to operator, ≱") {
+                expect(x ≱ x) == false
+                expect(x ≱ y) == true
+                expect(y ≱ x) == false
+                expect(y ≱ y) == false
+            }
+        }
+        
+        describe("the ≶ and ≷ operators") {
+            it("is the less-than-or-greater-than operator, ≶") {
+                expect(x ≶ x) == false
+                expect(x ≶ y) == true
+                expect(y ≶ x) == true
+                expect(y ≶ y) == false
+            }
+            
+            it("is the greater-than-or-less-than operator, ≷") {
+                expect(x ≷ x) == false
+                expect(x ≷ y) == true
+                expect(y ≷ x) == true
+                expect(y ≷ y) == false
+            }
+        }
+        
+        describe("the ≸ and ≹ operators") {
+            it("is the not-less-than-or-greater-than operator, ≸") {
+                expect(x ≸ x) == true
+                expect(x ≸ y) == false
+                expect(y ≸ x) == false
+                expect(y ≸ y) == true
+            }
+            
+            it("is the not-greater-than-or-less-than operator, ≹") {
+                expect(x ≹ x) == true
+                expect(x ≹ y) == false
+                expect(y ≹ x) == false
+                expect(y ≹ y) == true
+            }
+        }
+        
+        describe("the ⋚ and ⋛ operators") {
+            it("is the less-than-or-greater-than-or-equal-to operator, ⋚") {
+                expect(x ⋚ x) == true
+                expect(x ⋚ y) == true
+                expect(y ⋚ x) == true
+                expect(y ⋚ y) == true
+            }
+            
+            it("is the greater-than-or-less-than-or-equal-to operator, ⋛") {
+                expect(x ⋛ x) == true
+                expect(x ⋛ y) == true
+                expect(y ⋛ x) == true
+                expect(y ⋛ y) == true
+            }
+        }
     }
 }
