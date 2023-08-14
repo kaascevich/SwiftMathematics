@@ -70,5 +70,13 @@ public extension Double {
     ///   - radicand: The value to calculate the root of.
     ///
     /// - Returns: The root of the radicand.
-    static func √ (index: Self, radicand: Self) -> Self { pow(radicand, 1/index) }
+    static func √ (index: Self, radicand: Self) -> Self {
+        if index.remainder(dividingBy: 2) != 0, // if the index is odd...
+           radicand < 0                         // ...and the radicand is negative...
+        {
+            -pow(-radicand, 1/index)            // ...then negate the radicand, root it, and negate the result
+        } else {
+            pow(radicand, 1/index)
+        }
+    }
 }
