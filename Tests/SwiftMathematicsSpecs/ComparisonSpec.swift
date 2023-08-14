@@ -19,68 +19,41 @@ import Nimble
 @testable import SwiftMathematics
 
 final class ComparisonSpec: QuickSpec {
-    /// A number for testing.
-    ///
-    /// These relations are true:
-    ///
-    ///     x <= x
-    ///     x >= x
-    ///     x < y
-    ///     x <= y
-    ///
-    /// These relations are false:
-    ///
-    ///     x > x
-    ///     x < x
-    ///     x > y
-    ///     x >= y
-    static let x = 42
-    
-    /// Another number for testing.
-    ///
-    /// These relations are true:
-    ///
-    ///     y > x
-    ///     y >= x
-    ///     y <= y
-    ///     y >= y
-    ///
-    /// These relations are false:
-    ///
-    ///     y < x
-    ///     y <= x
-    ///     y < y
-    ///     y > y
-    static let y = 69
-    
-    static func testOperator<T, U: Equatable>(
-        _ closure: @escaping (T, T) -> U,
-        with expectedResults: [(T, T, U)]
-    ) {
-        for (first, second, result) in expectedResults {
-            expect(closure(first, second)).to(equal(result))
-        }
-    }
-    
     override class func spec() {
         describe("the ≤ and ≥ operators") {
             it("is the less-than-or-equal-to operator, ≤") {
                 testOperator(≤, with: [
-                    (x, x, true),
-                    (x, y, true),
-                    (y, x, false),
-                    (y, y, true)
+                    (x, x, result: true),
+                    (x, y, result: true),
+                    (y, x, result: false),
+                    (y, y, result: true)
                 ])
             }
             
             it("is the greater-than-or-equal-to operator, ≥") {
                 testOperator(≥, with: [
-                    (x, x, true),
-                    (x, y, false),
-                    (y, x, true),
-                    (y, y, true)
+                    (x, x, result: true),
+                    (x, y, result: false),
+                    (y, x, result: true),
+                    (y, y, result: true)
                 ])
             }
+        }
+    }
+}
+
+extension ComparisonSpec {
+    static let x = 42, y = 69
+    
+    typealias Operator<Input, Output> = (Input, Input) -> Output
+    typealias OperatorResult<Input, Output> = (Input, Input, result: Output)
+    
+    static func testOperator<Input, Output: Equatable>(
+        _ closure: @escaping Operator<Input, Output>,
+        with expectedResults: [OperatorResult<Input, Output>]
+    ) {
+        for (first, second, result) in expectedResults {
+            expect(closure(first, second)) == result
         }
     }
 }
