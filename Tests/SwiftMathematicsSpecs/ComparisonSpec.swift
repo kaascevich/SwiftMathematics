@@ -19,41 +19,24 @@ import Nimble
 @testable import SwiftMathematics
 
 final class ComparisonSpec: QuickSpec {
+    // x < y, y > x
+    static let x = 42, y = 69
+    
     override class func spec() {
         describe("the ≤ and ≥ operators") {
             it("is the less-than-or-equal-to operator, ≤") {
-                testOperator(≤, with: [
-                    (x, x, result: true),
-                    (x, y, result: true),
-                    (y, x, result: false),
-                    (y, y, result: true)
-                ])
+                expect(x ≤ x) == true
+                expect(x ≤ y) == true
+                expect(y ≤ x) == false
+                expect(y ≤ y) == true
             }
             
             it("is the greater-than-or-equal-to operator, ≥") {
-                testOperator(≥, with: [
-                    (x, x, result: true),
-                    (x, y, result: false),
-                    (y, x, result: true),
-                    (y, y, result: true)
-                ])
+                expect(x ≥ x) == true
+                expect(x ≥ y) == false
+                expect(y ≥ x) == true
+                expect(y ≥ y) == true
             }
-        }
-    }
-}
-
-extension ComparisonSpec {
-    static let x = 42, y = 69
-    
-    typealias Operator<Input, Output> = (Input, Input) -> Output
-    typealias OperatorResult<Input, Output> = (Input, Input, result: Output)
-    
-    static func testOperator<Input, Output: Equatable>(
-        _ closure: @escaping Operator<Input, Output>,
-        with expectedResults: [OperatorResult<Input, Output>]
-    ) {
-        for (first, second, result) in expectedResults {
-            expect(closure(first, second)) == result
         }
     }
 }
