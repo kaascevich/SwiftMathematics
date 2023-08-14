@@ -19,8 +19,11 @@ import Nimble
 @testable import SwiftMathematics
 
 final class ComparisonSpec: QuickSpec {
-    // x < y, y > x
-    static let x = 42, y = 69
+    /// `x` is less than `y`.
+    static let x = 42
+    
+    /// `y` is greater than `x`.
+    static let y = 69
     
     override class func spec() {
         describe("the ≤ and ≥ operators") {
