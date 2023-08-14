@@ -33,6 +33,7 @@ public extension Double {
     static func ** (base: Self, exponent: Self) -> Self {
         pow(base, exponent)
     }
+    
     static func **= (base: inout Self, exponent: Self) {
         base = pow(base, exponent)
     }

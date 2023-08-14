@@ -36,7 +36,7 @@ final class PowersSpec: QuickSpec {
         
         describe("the raise-to-power-and-assign operator") {
             it("works for integers") {
-                var elevenSquared = 11
+                var elevenSquared = 11.0
                 elevenSquared **= 2
                 expect(elevenSquared).to(equal(121))
             }
@@ -48,9 +48,9 @@ final class PowersSpec: QuickSpec {
             }
             
             it("works for very specific decimals") {
-                var piToTheFifth = φ
-                piToTheFifth **= e
-                expect(piToTheFifth).to(equal(306.019_684_785_281_41))
+                var piToTheE = π
+                piToTheE **= e
+                expect(piToTheE).to(equal(22.459_157_718_361_039_4))
             }
         }
     }

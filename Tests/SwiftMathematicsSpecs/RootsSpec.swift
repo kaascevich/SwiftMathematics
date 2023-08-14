@@ -32,7 +32,7 @@ final class RootsSpec: QuickSpec {
         
         describe("cube roots") {
             it("works on decimal roots") {
-                expect(∛8.1).to(equal(1.721_300_620_726_315_9))
+                expect(∛5.1).to(equal(1.721_300_620_726_315_9))
             }
             
             it("works on integer roots") {

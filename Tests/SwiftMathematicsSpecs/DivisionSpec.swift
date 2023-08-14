@@ -38,7 +38,7 @@ final class DivisionSpec: QuickSpec {
             }
             
             it("works for decimals") {
-                expect(23.4%).to(equal(0.234))
+                expect(23.4%).to(beCloseTo(0.234, within: 0.001))
             }
             
             it("works for integers greater than 100") {

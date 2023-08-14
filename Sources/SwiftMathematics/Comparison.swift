@@ -99,7 +99,7 @@ public extension Comparable {
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is not greater than that of the second argument.
-    /// 
+    ///
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
