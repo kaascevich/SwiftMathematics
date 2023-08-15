@@ -73,3 +73,28 @@ public extension Set {
         !(subset ⊆ sequence)
     }
 }
+
+// MARK: - Supersets
+
+infix operator ⊃: ComparisonPrecedence
+infix operator ⊅: ComparisonPrecedence
+infix operator ⊇: ComparisonPrecedence
+infix operator ⊉: ComparisonPrecedence
+
+public extension Set {
+    static func ⊃ (superset: Self, sequence: Self) -> Bool {
+        superset.isStrictSuperset(of: sequence)
+    }
+    
+    static func ⊅ (superset: Self, sequence: Self) -> Bool {
+        !(superset ⊃ sequence)
+    }
+    
+    static func ⊇ (superset: Self, sequence: Self) -> Bool {
+        superset.isSuperset(of: sequence)
+    }
+    
+    static func ⊉ (superset: Self, sequence: Self) -> Bool {
+        !(superset ⊇ sequence)
+    }
+}

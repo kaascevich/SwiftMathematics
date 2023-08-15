@@ -113,5 +113,59 @@ final class SetsSpec: QuickSpec {
                 }
             }
         }
+        
+        describe("the superset operators, ⊃, ⊅, ⊇, and ⊉") {
+            describe("the strict superset operators, ⊃ and ⊅") {
+                describe("the strict superset operator, ⊃") {
+                    it("returns true when the superset contains the set") {
+                        expect([1, 2, 3, 4, 5] ⊃ [1, 2, 3]).to(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊃ [1, 3, 2]).to(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊃ [1, 8, 2]).to(beFalse())
+                    }
+                    
+                    it("returns false when the superset equals the set") {
+                        expect([1, 2, 3, 4, 5] ⊃ [1, 2, 3, 4, 5]).to(beFalse())
+                    }
+                }
+                
+                describe("the inverse strict superset operator, ⊅") {
+                    it("returns false when the superset contains the set") {
+                        expect([1, 2, 3, 4, 5] ⊅ [1, 2, 3]).toNot(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊅ [1, 3, 2]).toNot(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊅ [1, 8, 2]).toNot(beFalse())
+                    }
+                    
+                    it("returns true when the superset equals the set") {
+                        expect([1, 2, 3, 4, 5] ⊅ [1, 2, 3, 4, 5]).toNot(beFalse())
+                    }
+                }
+            }
+            
+            describe("the superset operators, ⊇ and ⊉") {
+                describe("the superset operator, ⊇") {
+                    it("returns true when the superset contains the set") {
+                        expect([1, 2, 3, 4, 5] ⊇ [1, 2, 3]).to(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊇ [1, 3, 2]).to(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊇ [1, 8, 2]).to(beFalse())
+                    }
+                    
+                    it("returns true when the superset equals the set") {
+                        expect([1, 2, 3, 4, 5] ⊇ [1, 2, 3, 4, 5]).to(beTrue())
+                    }
+                }
+                
+                describe("the inverse superset operator, ⊉⊈") {
+                    it("returns false when the superset contains the set") {
+                        expect([1, 2, 3, 4, 5] ⊉ [1, 2, 3]).toNot(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊉ [1, 3, 2]).toNot(beTrue())
+                        expect([1, 2, 3, 4, 5] ⊉ [1, 8, 2]).toNot(beFalse())
+                    }
+                    
+                    it("returns false when the superset equals the set") {
+                        expect([1, 2, 3, 4, 5] ⊉ [1, 2, 3, 4, 5]).toNot(beTrue())
+                    }
+                }
+            }
+        }
     }
 }
