@@ -43,6 +43,8 @@ public extension Sequence where Element: Numeric {
 
 // MARK: - Complex Sequence Reducing
 
+// Large tuples are pretty much unavoidable when working with operators.
+// swiftlint:disable:next large_tuple
 public typealias BoundedSequence<T: BinaryInteger> = (
     from: T,
     to: T,
