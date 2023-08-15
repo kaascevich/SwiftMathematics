@@ -67,7 +67,7 @@ public extension FloatingPoint {
     ///
     /// - Returns: Whether the values are not approximately equal.
     static func ≉ (x: Self, y: Self) -> Bool {
-        !x.isApproximatelyEqual(to: y)
+        !(x ≈ y)
     }
 }
 

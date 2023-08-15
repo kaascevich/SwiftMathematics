@@ -35,6 +35,6 @@ public extension Sequence where Element: Equatable {
     }
     
     static func ∉ (element: Element, sequence: Self) -> Bool {
-        !sequence.contains(element)
+        !(element ∈ sequence)
     }
 }

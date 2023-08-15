@@ -134,7 +134,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≰ (x: Self, y: Self) -> Bool { !(x < y) && !(x == y) }
+    static func ≰ (x: Self, y: Self) -> Bool { !(x ≤ y)}
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is neither greater than nor equal to that of the second
@@ -145,7 +145,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≱ (x: Self, y: Self) -> Bool { !(x > y) && !(x == y) }
+    static func ≱ (x: Self, y: Self) -> Bool { !(x ≥ y) }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is less than or greater than that of the second argument.
@@ -176,7 +176,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≸ (x: Self, y: Self) -> Bool { !(x < y) && !(x > y) }
+    static func ≸ (x: Self, y: Self) -> Bool { !(x ≶ y)}
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is neither greater than nor less than that of the second
@@ -187,7 +187,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≹ (x: Self, y: Self) -> Bool { !(x > y) && !(x < y) }
+    static func ≹ (x: Self, y: Self) -> Bool { !(x ≷ y) }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is less than, equal to, or greater than that of the second
