@@ -48,6 +48,10 @@ let package = Package(
             .upToNextMajor(from: Version(1, 0, 0))
         ),
         .package(
+            url: "https://github.com/apple/swift-async-algorithms.git",
+            .upToNextMajor(from: Version(0, 1, 0))
+        ),
+        .package(
             url: "https://github.com/apple/swift-collections.git", 
             .upToNextMajor(from: Version(1, 0, 4))
         ),
@@ -73,6 +77,10 @@ let package = Package(
                 .product(
                     name: "Algorithms",
                     package: "swift-algorithms"
+                ),
+                .product(
+                    name: "AsyncAlgorithms",
+                    package: "swift-async-algorithms"
                 ),
                 .product(
                     name: "Collections",

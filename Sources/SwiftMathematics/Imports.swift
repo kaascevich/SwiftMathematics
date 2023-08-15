@@ -15,5 +15,6 @@
 // with this package. If not, see https://www.gnu.org/licenses/.
 
 @_exported import Algorithms
+@_exported import AsyncAlgorithms
 @_exported import Collections
 @_exported import Numerics
