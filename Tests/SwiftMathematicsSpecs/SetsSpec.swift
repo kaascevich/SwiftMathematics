@@ -25,5 +25,23 @@ final class SetsSpec: QuickSpec {
                 expect(ø).to(beEmpty())
             }
         }
+        
+        describe("the set membership operators, ∈, ∉, ∋, and ∌") {
+            describe("the left-to-right set membership operators, ∈ and ∉") {
+                describe("the left-to-right set membership operator, ∈") {
+                    it("returns true when the set contains the element") {
+                        expect(3 ∈ [1, 2, 3, 4, 5]).to(beTrue())
+                        expect(7 ∈ [1, 2, 3, 4, 5]).to(beFalse())
+                    }
+                }
+                
+                describe("the inverse left-to-right set membership operator, ∉") {
+                    it("returns false when the set contains the element") {
+                        expect(3 ∈ [1, 2, 3, 4, 5]).toNot(beTrue())
+                        expect(7 ∈ [1, 2, 3, 4, 5]).toNot(beFalse())
+                    }
+                }
+            }
+        }
     }
 }
