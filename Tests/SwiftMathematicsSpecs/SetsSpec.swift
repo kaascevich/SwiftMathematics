@@ -37,8 +37,24 @@ final class SetsSpec: QuickSpec {
                 
                 describe("the inverse left-to-right set membership operator, ∉") {
                     it("returns false when the set contains the element") {
-                        expect(3 ∈ [1, 2, 3, 4, 5]).toNot(beTrue())
-                        expect(7 ∈ [1, 2, 3, 4, 5]).toNot(beFalse())
+                        expect(3 ∉ [1, 2, 3, 4, 5]).toNot(beTrue())
+                        expect(7 ∉ [1, 2, 3, 4, 5]).toNot(beFalse())
+                    }
+                }
+            }
+            
+            describe("the right-to-left set membership operators, ∋ and ∌") {
+                describe("the right-to-left set membership operator, ∋") {
+                    it("returns true when the set contains the element") {
+                        expect([1, 2, 3, 4, 5] ∋ 3).to(beTrue())
+                        expect([1, 2, 3, 4, 5] ∋ 7).to(beFalse())
+                    }
+                }
+                
+                describe("the inverse right-to-left set membership operator, ∌") {
+                    it("returns false when the set contains the element") {
+                        expect([1, 2, 3, 4, 5] ∌ 3).toNot(beTrue())
+                        expect([1, 2, 3, 4, 5] ∌ 7).toNot(beFalse())
                     }
                 }
             }

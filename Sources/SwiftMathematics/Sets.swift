@@ -28,6 +28,8 @@ public let ø: [any Numeric] = []
 
 infix operator ∈: ComparisonPrecedence
 infix operator ∉: ComparisonPrecedence
+infix operator ∋: ComparisonPrecedence
+infix operator ∌: ComparisonPrecedence
 
 public extension Sequence where Element: Equatable {
     static func ∈ (element: Element, sequence: Self) -> Bool {
@@ -36,5 +38,13 @@ public extension Sequence where Element: Equatable {
     
     static func ∉ (element: Element, sequence: Self) -> Bool {
         !(element ∈ sequence)
+    }
+    
+    static func ∋ (sequence: Self, element: Element) -> Bool {
+        sequence.contains(element)
+    }
+    
+    static func ∌ (sequence: Self, element: Element) -> Bool {
+        !(sequence ∋ element)
     }
 }
