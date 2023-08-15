@@ -43,6 +43,8 @@ public extension Comparable {
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is less than or equal to that of the second argument.
     ///
+    /// On US English keyboard layouts, the "`≤`" character can be entered using ⌥< (option + less-than sign).
+    ///
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
@@ -52,6 +54,8 @@ public extension Comparable {
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is greater than or equal to that of the second argument.
+    ///
+    /// On US English keyboard layouts, the "`≤`" character can be entered using ⌥> (option + greater-than sign).
     ///
     /// - Parameters:
     ///   - x: A value to compare.

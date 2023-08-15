@@ -35,6 +35,8 @@ public extension Equatable {
     /// This is the default implementation of the not-equal-to operator (`≠`)
     /// for any type that conforms to `Equatable`.
     ///
+    /// On US English keyboard layouts, the "`≤`" character can be entered using ⌥= (option + equal sign).
+    ///
     /// - Parameters:
     ///   - x: A value to compare.
     ///   - y: Another value to compare.
@@ -49,6 +51,8 @@ public extension FloatingPoint {
     ///
     /// This operator's tolerance is `Self.ulpOfOne.squareRoot()`.
     /// `x.nextDown` and `x.nextUp`.
+    ///
+    /// On US English keyboard layouts, the "`≤`" character can be entered using ⌥X.
     ///
     /// - Returns: Whether the values are approximately equal.
     static func ≈ (x: Self, y: Self) -> Bool {

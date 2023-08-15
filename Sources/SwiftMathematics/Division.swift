@@ -31,6 +31,8 @@ public extension BinaryInteger {
     ///     let x = 21 ÷ 5
     ///     // x == 4
     ///
+    /// On US English keyboard layouts, the "`÷`" character can be entered using ⌥/ (option + forward slash).
+    ///
     /// - Parameters:
     ///   - x: The value to divide.
     ///   - y: The value to divide `x` by. `y` must not be zero.
@@ -48,6 +50,8 @@ public extension BinaryInteger {
     ///     var x = 21
     ///     x ÷= 5
     ///     // x == 4
+    ///
+    /// On US English keyboard layouts, the "`÷`" character can be entered using ⌥/ (option + forward slash).
     ///
     /// - Parameters:
     ///   - x: The value to divide.
@@ -90,6 +94,8 @@ public extension FloatingPoint {
     ///
     /// [spec]: http://ieeexplore.ieee.org/servlet/opac?punumber=4610933
     ///
+    /// On US English keyboard layouts, the "`÷`" character can be entered using ⌥/ (option + forward slash).
+    ///
     /// - Parameters:
     ///   - x: The value to divide.
     ///   - y: The value to divide `x` by.
@@ -101,6 +107,8 @@ public extension FloatingPoint {
     
     /// Divides the first value by the second and stores the quotient in the
     /// left-hand-side variable, rounding to a representable value.
+    ///
+    /// On US English keyboard layouts, the "`÷`" character can be entered using ⌥/ (option + forward slash).
     ///
     /// - Parameters:
     ///   - x: The value to divide.

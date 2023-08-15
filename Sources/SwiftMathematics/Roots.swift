@@ -41,6 +41,8 @@ public extension Double {
     ///     let distance = hypotenuse(dx, dy)
     ///     // distance == 5.0
     ///
+    /// On US English keyboard layouts, the "`√`" character can be entered using ⌥V.
+    ///
     /// - Parameter x: The value to calculate the square root of.
     ///
     /// - Returns: The square root of the value.
@@ -64,6 +66,8 @@ public extension Double {
         
     /// Returns an arbitrary root of the given radicand, rounded to a representable
     /// value.
+    ///
+    /// On US English keyboard layouts, the "`√`" character can be entered using ⌥V.
     ///
     /// - Parameters:
     ///   - index: The index of the root.

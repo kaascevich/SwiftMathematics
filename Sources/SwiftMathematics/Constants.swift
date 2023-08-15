@@ -23,6 +23,8 @@ import Foundation
 /// This value is rounded toward zero to keep user computations with angles
 /// from inadvertently ending up in the wrong quadrant.
 ///
+/// On US English keyboard layouts, the "`π`" character can be entered using ⌥P.
+///
 ///     print(π)
 ///     // Prints "3.1415926535897931"
 public let π = Double.pi

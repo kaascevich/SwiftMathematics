@@ -25,16 +25,26 @@ infix operator ∓ : AdditionPrecedence
 // MARK: - Implementations
 
 public extension SignedNumeric {
+    /// Returns a tuple containing the operand and its opposite, respectively.
+    ///
+    /// On US English keyboard layouts, the "`±`" character can be entered using ⌥⇧= (option + shift + equal sign).
     static prefix func ± (x: Self) -> (positive: Self, negative: Self) {
         (+x, -x)
     }
+    
+    /// Returns a tuple containing the operand's opposite and the operand itself, respectively.
     static prefix func ∓ (x: Self) -> (negative: Self, positive: Self) {
         (-x, +x)
     }
     
+    /// Returns a tuple containing, respectively, the sum and difference of the operands.
+    ///
+    /// On US English keyboard layouts, the "`±`" character can be entered using ⌥⇧= (option + shift + equal sign).
     static func ± (x: Self, y: Self) -> (added: Self, subtracted: Self) {
         (x + y, x - y)
     }
+    
+    /// Returns a tuple containing, respectively, the difference and sum of the operands.
     static func ∓ (x: Self, y: Self) -> (subtracted: Self, added: Self) {
         (x - y, x + y)
     }
