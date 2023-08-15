@@ -161,7 +161,7 @@ public extension Set {
     /// - Parameters:
     ///   - subset: A set of elements. `subset` must be finite.
     ///   - set: A set of elements. `set` must be finite.
-    /// - Returns: `true` if `set` is a strict subset of `subset`; otherwise,
+    /// - Returns: `true` if `subset` is a strict subset of `set`; otherwise,
     ///   `false`.
     static func ⊂ (subset: Self, set: Self) -> Bool {
         subset.isStrictSubset(of: set)
@@ -186,7 +186,7 @@ public extension Set {
     /// - Parameters:
     ///   - subset: A set of elements. `subset` must be finite.
     ///   - set: A set of elements. `set` must be finite.
-    /// - Returns: `true` if `set` is not a strict subset of `subset`; otherwise,
+    /// - Returns: `true` if `subset` is not a strict subset of `set`; otherwise,
     ///   `false`.
     static func ⊄ (subset: Self, set: Self) -> Bool {
         !(subset ⊂ set)
@@ -206,7 +206,7 @@ public extension Set {
     /// - Parameters:
     ///   - subset: A set of elements. `subset` must be finite.
     ///   - set: A set of elements. `set` must be finite.
-    /// - Returns: `true` if `set` is a subset of `subset`; otherwise, `false`.
+    /// - Returns: `true` if `subset` is a subset of `set`; otherwise, `false`.
     static func ⊆ (subset: Self, set: Self) -> Bool {
         subset.isSubset(of: set)
     }
@@ -225,7 +225,7 @@ public extension Set {
     /// - Parameters:
     ///   - subset: A set of elements. `subset` must be finite.
     ///   - set: A set of elements. `set` must be finite.
-    /// - Returns: `true` if `set` is not a subset of `subset`; otherwise, `false`.
+    /// - Returns: `true` if `subset` is not a subset of `set`; otherwise, `false`.
     static func ⊈ (subset: Self, set: Self) -> Bool {
         !(subset ⊆ set)
     }
@@ -233,9 +233,8 @@ public extension Set {
     /// Returns a Boolean value that indicates whether the first set is a subset
     /// of, but not equal to, the second.
     ///
-    /// Set *A* is a strict subset of another set *B* if every member of *A* is
-    /// also a member of *B* and *B* contains at least one element that is not a
-    /// member of *A*.
+    /// Set *A* is a subset of another set *B* if every member of *A* is also a
+    /// member of *B*.
     ///
     ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
     ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
@@ -248,8 +247,8 @@ public extension Set {
     /// - Parameters:
     ///   - subset: A set of elements. `subset` must be finite.
     ///   - set: A set of elements. `set` must be finite.
-    /// - Returns: `true` if `set` is a strict subset of `subset` and is not equal
-    ///   to it; otherwise, `false`.
+    /// - Returns: `true` if `subset` is a subset of `set` and is not equal to
+    ///   it; otherwise, `false`.
     static func ⊊ (subset: Self, set: Self) -> Bool {
         subset ⊂ set && subset != set
     }
@@ -264,22 +263,113 @@ infix operator ⊉: ComparisonPrecedence
 infix operator ⊋: ComparisonPrecedence
 
 public extension Set {
+    /// Returns a Boolean value that indicates whether the first set is a strict
+    /// superset of the second.
+    ///
+    /// Set *A* is a strict superset of another set *B* if every member of *B* is
+    /// also a member of *A* and *A* contains at least one element that is not a
+    /// member of *B*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(employees ⊃ attendees)
+    ///     // Prints "true"
+    ///
+    ///     // A set is never a strict superset of itself:
+    ///     print(employees ⊃ employees)
+    ///     // Prints "false"
+    ///
+    /// - Parameters:
+    ///   - superset: A set of elements. `superset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `superset` is a strict superset of `set`; otherwise,
+    ///   `false`.
     static func ⊃ (superset: Self, set: Self) -> Bool {
         superset.isStrictSuperset(of: set)
     }
     
+    /// Returns a Boolean value that indicates whether the set is not a strict
+    /// superset of the given sequence.
+    ///
+    /// Set *A* is a strict superset of another set *B* if every member of *B* is
+    /// also a member of *A* and *A* contains at least one element that is not a
+    /// member of *B*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(employees ⊅ attendees)
+    ///     // Prints "false"
+    ///
+    ///     // A set is never a strict superset of itself:
+    ///     print(employees ⊅ employees)
+    ///     // Prints "true"
+    ///
+    /// - Parameters:
+    ///   - superset: A set of elements. `superset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `superset` is not a strict superset of `set`; otherwise,
+    ///   `false`.
     static func ⊅ (superset: Self, set: Self) -> Bool {
         !(superset ⊃ set)
     }
     
+    /// Returns a Boolean value that indicates whether the first set is a superset
+    /// of the second.
+    ///
+    /// Set *A* is a superset of another set *B* if every member of *B* is also a
+    /// member of *A*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(employees ⊇ attendees)
+    ///     // Prints "true"
+    ///
+    /// - Parameters:
+    ///   - superset: A set of elements. `superset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `superset` is a superset of `set`; otherwise, `false`.
     static func ⊇ (superset: Self, set: Self) -> Bool {
         superset.isSuperset(of: set)
     }
     
+    /// Returns a Boolean value that indicates whether the set is not a superset
+    /// of the given sequence.
+    ///
+    /// Set *A* is a superset of another set *B* if every member of *B* is also a
+    /// member of *A*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(employees ⊉ attendees)
+    ///     // Prints "false"
+    ///
+    /// - Parameters:
+    ///   - superset: A set of elements. `superset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `superset` is not a superset of `set`; otherwise, `false`.
     static func ⊉ (superset: Self, set: Self) -> Bool {
         !(superset ⊇ set)
     }
     
+    /// Returns a Boolean value that indicates whether the first set is a superset
+    /// of, but not equal to, the second.
+    ///
+    /// Set *A* is a superset of another set *B* if every member of *B* is also a
+    /// member of *A*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(employees ⊋ attendees)
+    ///     // Prints "true"
+    ///
+    ///     print(employees ⊋ employees)
+    ///     // Prints "false"
+    ///
+    /// - Parameters:
+    ///   - superset: A set of elements. `superset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `superset` is a superset of `set` and is not equal to
+    ///   it; otherwise, `false`.
     static func ⊋ (superset: Self, set: Self) -> Bool {
         superset ⊃ set && superset != set
     }
