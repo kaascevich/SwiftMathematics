@@ -112,6 +112,18 @@ final class SetsSpec: QuickSpec {
                     }
                 }
             }
+            
+            describe("the subset-but-not-equal-to operator, ⊊") {
+                it("returns true when the set contains the subset") {
+                    expect([1, 2, 3] ⊊ [1, 2, 3, 4, 5]).to(beTrue())
+                    expect([1, 3, 2] ⊊ [1, 2, 3, 4, 5]).to(beTrue())
+                    expect([1, 8, 2] ⊊ [1, 2, 3, 4, 5]).to(beFalse())
+                }
+                
+                it("returns false when the set equals the subset") {
+                    expect([1, 2, 3, 4, 5] ⊊ [1, 2, 3, 4, 5]).toNot(beTrue())
+                }
+            }
         }
         
         describe("the superset operators, ⊃, ⊅, ⊇, and ⊉") {
@@ -154,7 +166,7 @@ final class SetsSpec: QuickSpec {
                     }
                 }
                 
-                describe("the inverse superset operator, ⊉⊈") {
+                describe("the inverse superset operator, ⊉") {
                     it("returns false when the superset contains the set") {
                         expect([1, 2, 3, 4, 5] ⊉ [1, 2, 3]).toNot(beTrue())
                         expect([1, 2, 3, 4, 5] ⊉ [1, 3, 2]).toNot(beTrue())
@@ -164,6 +176,18 @@ final class SetsSpec: QuickSpec {
                     it("returns false when the superset equals the set") {
                         expect([1, 2, 3, 4, 5] ⊉ [1, 2, 3, 4, 5]).toNot(beTrue())
                     }
+                }
+            }
+            
+            describe("the superset-but-not-equal-to operator, ⊋") {
+                it("returns true when the superset contains the set") {
+                    expect([1, 2, 3, 4, 5] ⊋ [1, 2, 3]).to(beTrue())
+                    expect([1, 2, 3, 4, 5] ⊋ [1, 3, 2]).to(beTrue())
+                    expect([1, 2, 3, 4, 5] ⊋ [1, 8, 2]).to(beFalse())
+                }
+                
+                it("returns false when the superset equals the set") {
+                    expect([1, 2, 3, 4, 5] ⊋ [1, 2, 3, 4, 5]).toNot(beTrue())
                 }
             }
         }

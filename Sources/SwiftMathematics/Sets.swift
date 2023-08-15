@@ -55,6 +55,7 @@ infix operator ⊂: ComparisonPrecedence
 infix operator ⊄: ComparisonPrecedence
 infix operator ⊆: ComparisonPrecedence
 infix operator ⊈: ComparisonPrecedence
+infix operator ⊊: ComparisonPrecedence
 
 public extension Set {
     static func ⊂ (subset: Self, sequence: Self) -> Bool {
@@ -72,6 +73,10 @@ public extension Set {
     static func ⊈ (subset: Self, sequence: Self) -> Bool {
         !(subset ⊆ sequence)
     }
+    
+    static func ⊊ (subset: Self, sequence: Self) -> Bool {
+        subset ⊂ sequence && subset != sequence
+    }
 }
 
 // MARK: - Supersets
@@ -80,6 +85,7 @@ infix operator ⊃: ComparisonPrecedence
 infix operator ⊅: ComparisonPrecedence
 infix operator ⊇: ComparisonPrecedence
 infix operator ⊉: ComparisonPrecedence
+infix operator ⊋: ComparisonPrecedence
 
 public extension Set {
     static func ⊃ (superset: Self, sequence: Self) -> Bool {
@@ -96,5 +102,9 @@ public extension Set {
     
     static func ⊉ (superset: Self, sequence: Self) -> Bool {
         !(superset ⊇ sequence)
+    }
+    
+    static func ⊋ (superset: Self, sequence: Self) -> Bool {
+        superset ⊃ sequence && superset != sequence
     }
 }
