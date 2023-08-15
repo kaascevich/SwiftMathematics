@@ -142,22 +142,114 @@ infix operator ⊈: ComparisonPrecedence
 infix operator ⊊: ComparisonPrecedence
 
 public extension Set {
+    /// Returns a Boolean value that indicates whether the first set is a strict
+    /// subset of the second.
+    ///
+    /// Set *A* is a strict subset of another set *B* if every member of *A* is
+    /// also a member of *B* and *B* contains at least one element that is not a
+    /// member of *A*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(attendees ⊂ employees)
+    ///     // Prints "true"
+    ///
+    ///     // A set is never a strict subset of itself:
+    ///     print(attendees ⊂ attendees)
+    ///     // Prints "false"
+    ///
+    /// - Parameters:
+    ///   - subset: A set of elements. `subset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `set` is a strict subset of `subset`; otherwise,
+    ///   `false`.
     static func ⊂ (subset: Self, set: Self) -> Bool {
         subset.isStrictSubset(of: set)
     }
     
+    /// Returns a Boolean value that indicates whether the set is not a strict
+    /// subset of the given sequence.
+    ///
+    /// Set *A* is a strict subset of another set *B* if every member of *A* is
+    /// also a member of *B* and *B* contains at least one element that is not a
+    /// member of *A*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(attendees ⊄ employees)
+    ///     // Prints "false"
+    ///
+    ///     // A set is never a strict subset of itself:
+    ///     print(attendees ⊄ attendees)
+    ///     // Prints "true"
+    ///
+    /// - Parameters:
+    ///   - subset: A set of elements. `subset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `set` is not a strict subset of `subset`; otherwise,
+    ///   `false`.
     static func ⊄ (subset: Self, set: Self) -> Bool {
         !(subset ⊂ set)
     }
     
+    /// Returns a Boolean value that indicates whether the first set is a subset
+    /// of the second.
+    ///
+    /// Set *A* is a subset of another set *B* if every member of *A* is also a
+    /// member of *B*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(attendees ⊆ employees)
+    ///     // Prints "true"
+    ///
+    /// - Parameters:
+    ///   - subset: A set of elements. `subset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `set` is a subset of `subset`; otherwise, `false`.
     static func ⊆ (subset: Self, set: Self) -> Bool {
         subset.isSubset(of: set)
     }
     
+    /// Returns a Boolean value that indicates whether the first set is not a
+    /// subset of the second.
+    ///
+    /// Set *A* is a subset of another set *B* if every member of *A* is also a
+    /// member of *B*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(attendees ⊈ employees)
+    ///     // Prints "false"
+    ///
+    /// - Parameters:
+    ///   - subset: A set of elements. `subset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `set` is not a subset of `subset`; otherwise, `false`.
     static func ⊈ (subset: Self, set: Self) -> Bool {
         !(subset ⊆ set)
     }
     
+    /// Returns a Boolean value that indicates whether the first set is a subset
+    /// of, but not equal to, the second.
+    ///
+    /// Set *A* is a strict subset of another set *B* if every member of *A* is
+    /// also a member of *B* and *B* contains at least one element that is not a
+    /// member of *A*.
+    ///
+    ///     let employees = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     print(attendees ⊊ employees)
+    ///     // Prints "true"
+    ///
+    ///     print(attendees ⊊ attendees)
+    ///     // Prints "false"
+    ///
+    /// - Parameters:
+    ///   - subset: A set of elements. `subset` must be finite.
+    ///   - set: A set of elements. `set` must be finite.
+    /// - Returns: `true` if `set` is a strict subset of `subset` and is not equal
+    ///   to it; otherwise, `false`.
     static func ⊊ (subset: Self, set: Self) -> Bool {
         subset ⊂ set && subset != set
     }
