@@ -14,10 +14,27 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+// MARK: - Constants
+
 /// The empty set.
 ///
 /// The character representing this constant is not the actual empty set
 /// symbol (`∅`), as Swift treats it as an operator character. The similar
 /// "o with stroke" symbol (`ø`) is used instead. On US English keyboard
 /// layouts, it can be entered using ⌥O.
-public let ø: Set<Double> = []
+public let ø: [any Numeric] = []
+
+// MARK: - Membership
+
+infix operator ∈: ComparisonPrecedence
+infix operator ∉: ComparisonPrecedence
+
+public extension Sequence where Element: Equatable {
+    static func ∈ (element: Element, sequence: Self) -> Bool {
+        sequence.contains(element)
+    }
+    
+    static func ∉ (element: Element, sequence: Self) -> Bool {
+        !sequence.contains(element)
+    }
+}
