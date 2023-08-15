@@ -43,22 +43,20 @@ public extension Sequence where Element: Numeric {
 
 // MARK: - Complex Sequence Reducing
 
-// Large tuples are pretty much unavoidable when working with operators.
-// swiftlint:disable:next large_tuple
-public typealias BoundedSequence<T: BinaryInteger> = (
-    from: T,
-    to: T,
-    function: (T) -> T
-) where T.Stride: SignedInteger
-
 /// Returns the sum of a sequence of numbers between `bounds.from` and `bounds.to`.
 ///
 /// - Parameter bounds: A tuple containing the start index, the end index, and the function generating the sequence.
 ///
 /// - Returns: The sum of the generated sequence's elements.
 ///
+///     let f = { (x: Int) in x * x }
+///     let sum = ∑(3, 6, f)
+///     // sum == 86     
+///
 /// - Precondition: `bounds.from <= bounds.to`.
-public prefix func ∑ <T>(bounds: BoundedSequence<T>) -> T {
+public prefix func ∑ <T: BinaryInteger>(
+    bounds: (from: T, to: T, function: (T) -> T)
+) -> T where T.Stride: SignedInteger {
     precondition(bounds.from <= bounds.to, "start index of summation must be less than end index")
     
     let sequence = Array(bounds.from...bounds.to).map(bounds.function)
@@ -71,8 +69,14 @@ public prefix func ∑ <T>(bounds: BoundedSequence<T>) -> T {
 ///
 /// - Returns: The product of the generated sequence's elements.
 ///
+///     let f = { (x: Int) in x + x }
+///     let product = ∑(3, 6, f)
+///     // product == 5760
+///
 /// - Precondition: `bounds.from <= bounds.to`.
-public prefix func ∏ <T>(bounds: BoundedSequence<T>) -> T {
+public prefix func ∏ <T: BinaryInteger>(
+    bounds: (from: T, to: T, function: (T) -> T)
+) -> T where T.Stride: SignedInteger {
     precondition(bounds.from <= bounds.to, "start index of Cartesian product must be less than end index")
     
     let sequence = Array(bounds.from...bounds.to).map(bounds.function)

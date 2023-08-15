@@ -2,6 +2,7 @@ disabled_rules:
     - comma # more annoying than helpful when aligning code
     - function_body_length # ...tests
     - identifier_name # doesn't play well with custom operators
+    - large_tuple # pretty much unavoidable when working with operators
     - line_length
     - todo # annoying
     - vertical_parameter_alignment_on_call # doesn't play well with trailing closures
