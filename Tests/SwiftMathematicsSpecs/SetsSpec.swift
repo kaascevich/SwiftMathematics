@@ -22,7 +22,7 @@ final class SetsSpec: QuickSpec {
     override class func spec() {
         describe("the empty set") {
             it("contains no members") {
-                expect(ø).to(beEmpty())
+                expect(Ø).to(beEmpty())
             }
         }
         
@@ -189,6 +189,33 @@ final class SetsSpec: QuickSpec {
                 it("returns false when the superset equals the set") {
                     expect([1, 2, 3, 4, 5] ⊋ [1, 2, 3, 4, 5]).toNot(beTrue())
                 }
+            }
+        }
+        
+        describe("the intersection operator, ∩") {
+            it("returns the intersection of two sets") {
+                let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+                let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]
+                let bothNeighborsAndEmployees = employees ∩ neighbors
+                
+                expect(bothNeighborsAndEmployees).to(contain("Bethany", "Eric"))
+            }
+        }
+        
+        describe("the union operator, ∪") {
+            it("returns the union of two sets") {
+                let attendees: Set = ["Alicia", "Bethany", "Diana"]
+                let visitors: Set = ["Marcia", "Nathaniel"]
+                let attendeesAndVisitors = attendees ∪ visitors
+                
+                expect(attendeesAndVisitors).to(contain("Diana", "Nathaniel", "Bethany", "Alicia", "Marcia"))
+            }
+            
+            it("keeps existing elements and removes duplicates") {
+                let initialIndices = Set(0..<5)
+                let expandedIndices = initialIndices ∪ [2, 3, 6, 6, 7, 7]
+                
+                expect(expandedIndices).to(contain(2, 4, 6, 7, 0, 1, 3))
             }
         }
     }

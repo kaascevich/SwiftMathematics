@@ -20,9 +20,9 @@
 ///
 /// The character representing this constant is not the actual empty set
 /// symbol (`∅`), as Swift treats it as an operator character. The similar
-/// "o with stroke" symbol (`ø`) is used instead. On US English keyboard
+/// "o with stroke" symbol (`Ø`) is used instead. On US English keyboard
 /// layouts, it can be entered using ⌥O.
-public let ø: Set<AnyHashable> = []
+public let Ø: Set<AnyHashable> = []
 
 // MARK: - Membership
 
@@ -50,6 +50,7 @@ public extension Set {
     /// - Parameters:
     ///    - element: An element to look for in the set.
     ///    - set: A set.
+    ///
     /// - Returns: `true` if `element` exists in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
@@ -75,6 +76,7 @@ public extension Set {
     /// - Parameters:
     ///    - element: An element to look for in the set.
     ///    - set: A set.
+    ///
     /// - Returns: `true` if `element` does not exist in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
@@ -100,6 +102,7 @@ public extension Set {
     /// - Parameters:
     ///    - set: A set.
     ///    - element: An element to look for in the set.
+    ///
     /// - Returns: `true` if `element` exists in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
@@ -125,6 +128,7 @@ public extension Set {
     /// - Parameters:
     ///    - set: A set.
     ///    - element: An element to look for in the set.
+    ///
     /// - Returns: `true` if `element` does not exist in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
@@ -159,8 +163,9 @@ public extension Set {
     ///     // Prints "false"
     ///
     /// - Parameters:
-    ///   - subset: A set of elements. `subset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - subset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `subset` is a strict subset of `set`; otherwise,
     ///   `false`.
     static func ⊂ (subset: Self, set: Self) -> Bool {
@@ -184,8 +189,9 @@ public extension Set {
     ///     // Prints "true"
     ///
     /// - Parameters:
-    ///   - subset: A set of elements. `subset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - subset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `subset` is not a strict subset of `set`; otherwise,
     ///   `false`.
     static func ⊄ (subset: Self, set: Self) -> Bool {
@@ -204,8 +210,9 @@ public extension Set {
     ///     // Prints "true"
     ///
     /// - Parameters:
-    ///   - subset: A set of elements. `subset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - subset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `subset` is a subset of `set`; otherwise, `false`.
     static func ⊆ (subset: Self, set: Self) -> Bool {
         subset.isSubset(of: set)
@@ -223,8 +230,9 @@ public extension Set {
     ///     // Prints "false"
     ///
     /// - Parameters:
-    ///   - subset: A set of elements. `subset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - subset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `subset` is not a subset of `set`; otherwise, `false`.
     static func ⊈ (subset: Self, set: Self) -> Bool {
         !(subset ⊆ set)
@@ -245,8 +253,9 @@ public extension Set {
     ///     // Prints "false"
     ///
     /// - Parameters:
-    ///   - subset: A set of elements. `subset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - subset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `subset` is a subset of `set` and is not equal to
     ///   it; otherwise, `false`.
     static func ⊊ (subset: Self, set: Self) -> Bool {
@@ -280,8 +289,9 @@ public extension Set {
     ///     // Prints "false"
     ///
     /// - Parameters:
-    ///   - superset: A set of elements. `superset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - superset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `superset` is a strict superset of `set`; otherwise,
     ///   `false`.
     static func ⊃ (superset: Self, set: Self) -> Bool {
@@ -305,8 +315,9 @@ public extension Set {
     ///     // Prints "true"
     ///
     /// - Parameters:
-    ///   - superset: A set of elements. `superset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - superset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `superset` is not a strict superset of `set`; otherwise,
     ///   `false`.
     static func ⊅ (superset: Self, set: Self) -> Bool {
@@ -325,8 +336,9 @@ public extension Set {
     ///     // Prints "true"
     ///
     /// - Parameters:
-    ///   - superset: A set of elements. `superset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - superset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `superset` is a superset of `set`; otherwise, `false`.
     static func ⊇ (superset: Self, set: Self) -> Bool {
         superset.isSuperset(of: set)
@@ -344,8 +356,9 @@ public extension Set {
     ///     // Prints "false"
     ///
     /// - Parameters:
-    ///   - superset: A set of elements. `superset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - superset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `superset` is not a superset of `set`; otherwise, `false`.
     static func ⊉ (superset: Self, set: Self) -> Bool {
         !(superset ⊇ set)
@@ -366,11 +379,72 @@ public extension Set {
     ///     // Prints "false"
     ///
     /// - Parameters:
-    ///   - superset: A set of elements. `superset` must be finite.
-    ///   - set: A set of elements. `set` must be finite.
+    ///   - superset: A set.
+    ///   - set: Another set.
+    ///
     /// - Returns: `true` if `superset` is a superset of `set` and is not equal to
     ///   it; otherwise, `false`.
     static func ⊋ (superset: Self, set: Self) -> Bool {
         superset ⊃ set && superset != set
+    }
+}
+
+// MARK: - Intersection and Union
+
+infix operator ∩
+infix operator ∪
+
+public extension Set {
+    /// Returns a new set with the elements that are common to both of the given
+    /// sets.
+    ///
+    /// In the following example, the `bothNeighborsAndEmployees` set is made up
+    /// of the elements that are in *both* the `employees` and `neighbors` sets.
+    /// Elements that are in only one or the other are left out of the result of
+    /// the intersection.
+    ///
+    ///     let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]
+    ///     let bothNeighborsAndEmployees = employees ∩ neighbors
+    ///     print(bothNeighborsAndEmployees)
+    ///     // Prints "["Bethany", "Eric"]"
+    ///
+    /// - Parameters:
+    ///   - a: A set.
+    ///   - b: Another set.
+    ///
+    /// - Returns: A new set.
+    static func ∩ (a: Self, b: Self) -> Self {
+        a.intersection(b)
+    }
+    
+    /// Returns a new set with the elements of both of the given sets.
+    ///
+    /// In the following example, the `attendeesAndVisitors` set is made up
+    /// of the elements of the `attendees` set and the `visitors` array:
+    ///
+    ///     let attendees: Set = ["Alicia", "Bethany", "Diana"]
+    ///     let visitors = ["Marcia", "Nathaniel"]
+    ///     let attendeesAndVisitors = attendees ∪ visitors
+    ///     print(attendeesAndVisitors)
+    ///     // Prints "["Diana", "Nathaniel", "Bethany", "Alicia", "Marcia"]"
+    ///
+    /// If the first set already contains one or more elements that are also
+    /// in the second, the existing members are kept. If the second set
+    /// contains multiple instances of equivalent elements, only the first
+    /// instance is kept.
+    ///
+    ///     let initialIndices = Set(0..<5)
+    ///     let expandedIndices = initialIndices ∪ [2, 3, 6, 6, 7, 7]
+    ///     print(expandedIndices)
+    ///     // Prints "[2, 4, 6, 7, 0, 1, 3]"
+    ///
+    /// - Parameters:
+    ///   - a: A set.
+    ///   - b: Another set.
+    ///
+    /// - Returns: A new set with the unique elements of the given sets.
+    static func ∪ (a: Self, b: Self) -> Self {
+        a.union(b)
     }
 }
