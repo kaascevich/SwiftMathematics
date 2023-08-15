@@ -73,3 +73,34 @@ public extension Set {
         a.union(b)
     }
 }
+
+// MARK: - Symmetric Difference
+
+infix operator ∆
+
+public extension Set {
+    /// Returns a new set with the elements that are either in the first set or in
+    /// the second, but not in both.
+    ///
+    /// In the following example, the `eitherNeighborsOrEmployees` set is made up
+    /// of the elements of the `employees` and `neighbors` sets that are not in
+    /// both `employees` *and* `neighbors`. In particular, the names `"Bethany"`
+    /// and `"Eric"` do not appear in `eitherNeighborsOrEmployees`.
+    ///
+    ///     let employees: Set = ["Alicia", "Bethany", "Diana", "Eric"]
+    ///     let neighbors = ["Bethany", "Eric", "Forlani"]
+    ///     let eitherNeighborsOrEmployees = employees ∆ neighbors
+    ///     print(eitherNeighborsOrEmployees)
+    ///     // Prints "["Diana", "Forlani", "Alicia"]"
+    ///
+    /// On US English keyboard layouts, the "`∆`" character can be entered using ⌥J.
+    ///
+    /// - Parameters:
+    ///   - a: A set.
+    ///   - b: Another set.
+    ///
+    /// - Returns: A new set.
+    @inlinable static func ∆ (a: Self, b: Self) -> Self {
+        a.symmetricDifference(b)
+    }
+}

@@ -1,4 +1,4 @@
-// SetOperatorsSpec.swift
+// SetOperationsSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,15 +18,14 @@ import Quick
 import Nimble
 @testable import SwiftMathematics
 
-final class SetOperatorsSpec: QuickSpec {
+final class SetOperationsSpec: QuickSpec {
     override class func spec() {
         describe("the intersection operator, ∩") {
             it("returns the intersection of two sets") {
                 let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
                 let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]
-                let bothNeighborsAndEmployees = employees ∩ neighbors
                 
-                expect(bothNeighborsAndEmployees).to(contain("Bethany", "Eric"))
+                expect(employees ∩ neighbors).to(contain("Bethany", "Eric"))
             }
         }
         
@@ -34,9 +33,8 @@ final class SetOperatorsSpec: QuickSpec {
             it("returns the union of two sets") {
                 let attendees: Set = ["Alicia", "Bethany", "Diana"]
                 let visitors: Set = ["Marcia", "Nathaniel"]
-                let attendeesAndVisitors = attendees ∪ visitors
                 
-                expect(attendeesAndVisitors).to(contain("Diana", "Nathaniel", "Bethany", "Alicia", "Marcia"))
+                expect(attendees ∪ visitors).to(contain("Diana", "Nathaniel", "Bethany", "Alicia", "Marcia"))
             }
             
             it("keeps existing elements and removes duplicates") {
@@ -44,6 +42,14 @@ final class SetOperatorsSpec: QuickSpec {
                 let expandedIndices = initialIndices ∪ [2, 3, 6, 6, 7, 7]
                 
                 expect(expandedIndices).to(contain(2, 4, 6, 7, 0, 1, 3))
+            }
+        }
+        
+        describe("the symmetric difference operator, ∆") {
+            it("returns elements that are in one set, but not both") {
+                let employees: Set = ["Alicia", "Bethany", "Diana", "Eric"]
+                let neighbors: Set = ["Bethany", "Eric", "Forlani"]
+                expect(employees ∆ neighbors).to(contain("Diana", "Forlani", "Alicia"))
             }
         }
     }
