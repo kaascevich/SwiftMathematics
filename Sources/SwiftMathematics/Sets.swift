@@ -20,4 +20,4 @@
 /// symbol (`∅`), as Swift treats it as an operator character. The similar
 /// "o with stroke" symbol (`ø`) is used instead. On US English keyboard
 /// layouts, it can be entered using ⌥O.
-public let ø: [any Numeric] = []
+public let ø: Set<Double> = []
