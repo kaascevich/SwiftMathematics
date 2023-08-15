@@ -61,8 +61,8 @@ final class SetsSpec: QuickSpec {
         }
         
         describe("the subset operators, ⊂, ⊄, ⊆, and ⊈") {
-            describe("the regular subset operators, ⊂ and ⊄") {
-                describe("the subset operator, ⊂") {
+            describe("the strict subset operators, ⊂ and ⊄") {
+                describe("the strict subset operator, ⊂") {
                     it("returns true when the set contains the subset") {
                         expect([1, 2, 3] ⊂ [1, 2, 3, 4, 5]).to(beTrue())
                         expect([1, 3, 2] ⊂ [1, 2, 3, 4, 5]).to(beTrue())
@@ -74,7 +74,7 @@ final class SetsSpec: QuickSpec {
                     }
                 }
                 
-                describe("the inverse subset operator, ⊄") {
+                describe("the inverse strict subset operator, ⊄") {
                     it("returns false when the set contains the subset") {
                         expect([1, 2, 3] ⊄ [1, 2, 3, 4, 5]).toNot(beTrue())
                         expect([1, 3, 2] ⊄ [1, 2, 3, 4, 5]).toNot(beTrue())
@@ -87,8 +87,8 @@ final class SetsSpec: QuickSpec {
                 }
             }
             
-            describe("the subset-or-equal operators, ⊆ and ⊄") {
-                describe("the subset-or-equal operator, ⊆") {
+            describe("the subset operators, ⊆ and ⊄") {
+                describe("the subset operator, ⊆") {
                     it("returns true when the set contains the subset") {
                         expect([1, 2, 3] ⊆ [1, 2, 3, 4, 5]).to(beTrue())
                         expect([1, 3, 2] ⊆ [1, 2, 3, 4, 5]).to(beTrue())
@@ -100,7 +100,7 @@ final class SetsSpec: QuickSpec {
                     }
                 }
                 
-                describe("the inverse subset-or-equal operator, ⊈") {
+                describe("the inverse subset operator, ⊈") {
                     it("returns false when the set contains the subset") {
                         expect([1, 2, 3] ⊈ [1, 2, 3, 4, 5]).toNot(beTrue())
                         expect([1, 3, 2] ⊈ [1, 2, 3, 4, 5]).toNot(beTrue())
