@@ -31,6 +31,11 @@ final class SequencesSpec: QuickSpec {
                 let sum = ∑(3, 6, f)
                 expect(sum).to(equal(86))
             }
+            
+            it("fails when the lower bound isn't less than the upper bound") {
+                let f = { (x: Int) in x * x }
+                expect(∑(6, 3, f)).to(throwAssertion())
+            }
         }
         
         describe("the Cartesian product operator, ∏") {
@@ -43,6 +48,11 @@ final class SequencesSpec: QuickSpec {
                 let f = { (x: Int) in x + x }
                 let product = ∏(3, 6, f)
                 expect(product).to(equal(5760))
+            }
+            
+            it("fails when the lower bound isn't less than the upper bound") {
+                let f = { (x: Int) in x + x }
+                expect(∏(6, 3, f)).to(throwAssertion())
             }
         }
     }

@@ -51,7 +51,7 @@ public extension Sequence where Element: Numeric {
 ///
 ///     let f = { (x: Int) in x * x }
 ///     let sum = ∑(3, 6, f)
-///     // sum == 86     
+///     // sum == 86
 ///
 /// - Precondition: `bounds.from <= bounds.to`.
 public prefix func ∑ <T: BinaryInteger>(
