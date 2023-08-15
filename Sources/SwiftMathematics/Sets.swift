@@ -31,7 +31,7 @@ infix operator ∉: ComparisonPrecedence
 infix operator ∋: ComparisonPrecedence
 infix operator ∌: ComparisonPrecedence
 
-public extension Sequence where Element: Equatable {
+public extension Set {
     static func ∈ (element: Element, sequence: Self) -> Bool {
         sequence.contains(element)
     }
