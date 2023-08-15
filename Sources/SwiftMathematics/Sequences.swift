@@ -24,6 +24,8 @@ prefix operator ∏
 public extension Sequence where Element: Numeric {
     /// Returns the sum of a sequence of numbers.
     ///
+    /// On US English keyboard layouts, the "`∑`" character can be entered using ⌥W.
+    ///
     /// - Parameter sequence: A sequence of numbers.
     ///
     /// - Returns: The summed sequence.
@@ -32,6 +34,8 @@ public extension Sequence where Element: Numeric {
     }
     
     /// Returns the Cartesian product of a sequence of numbers.
+    ///
+    /// On US English keyboard layouts, the "`∏`" character can be entered using ⌥⇧P.
     ///
     /// - Parameter sequence: A sequence of numbers.
     ///
@@ -45,15 +49,17 @@ public extension Sequence where Element: Numeric {
 
 /// Returns the sum of a sequence of numbers between `bounds.from` and `bounds.to`.
 ///
-/// - Parameter bounds: A tuple containing the start index, the end index, and the function generating the sequence.
-///
-/// - Returns: The sum of the generated sequence's elements.
+/// On US English keyboard layouts, the "`∑`" character can be entered using ⌥W.
 ///
 ///     let f = { (x: Int) in x * x }
 ///     let sum = ∑(3, 6, f)
 ///     // sum == 86
 ///
 /// - Precondition: `bounds.from <= bounds.to`.
+///
+/// - Parameter bounds: A tuple containing the start index, the end index, and the function generating the sequence.
+///
+/// - Returns: The sum of the generated sequence's elements.
 public prefix func ∑ <T: BinaryInteger>(
     bounds: (from: T, to: T, function: (T) -> T)
 ) -> T where T.Stride: SignedInteger {
@@ -65,15 +71,17 @@ public prefix func ∑ <T: BinaryInteger>(
 
 /// Returns the Cartesian product of a sequence of numbers between `bounds.from` and `bounds.to`.
 ///
-/// - Parameter bounds: A tuple containing the start index, the end index, and the function generating the sequence.
-///
-/// - Returns: The product of the generated sequence's elements.
+/// On US English keyboard layouts, the "`∏`" character can be entered using ⌥⇧P.
 ///
 ///     let f = { (x: Int) in x + x }
 ///     let product = ∑(3, 6, f)
 ///     // product == 5760
 ///
 /// - Precondition: `bounds.from <= bounds.to`.
+///
+/// - Parameter bounds: A tuple containing the start index, the end index, and the function generating the sequence.
+///
+/// - Returns: The product of the generated sequence's elements.
 public prefix func ∏ <T: BinaryInteger>(
     bounds: (from: T, to: T, function: (T) -> T)
 ) -> T where T.Stride: SignedInteger {
