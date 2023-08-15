@@ -74,11 +74,54 @@ public extension Set {
     }
 }
 
-// MARK: - Symmetric Difference
+// MARK: - Differences
 
+infix operator ∖
 infix operator ∆
 
 public extension Set {
+    /// Returns a new set containing the elements of the first set that do not
+    /// occur in the second.
+    ///
+    /// In the following example, the `nonNeighbors` set is made up of the
+    /// elements of the `employees` set that are not elements of `neighbors`:
+    ///
+    ///     let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let neighbors = ["Bethany", "Eric", "Forlani", "Greta"]
+    ///     let nonNeighbors = employees ∖ neighbors
+    ///     print(nonNeighbors)
+    ///     // Prints "["Chris", "Diana", "Alicia"]"
+    ///
+    /// - Parameters:
+    ///   - a: A set.
+    ///   - b: Another set.
+    ///
+    /// - Returns: A new set.
+    @inlinable static func ∖ (a: Self, b: Self) -> Self {
+        a.subtracting(b)
+    }
+    
+    /// Returns a new set containing the elements of the first set that do not
+    /// occur in the second.
+    ///
+    /// In the following example, the `nonNeighbors` set is made up of the
+    /// elements of the `employees` set that are not elements of `neighbors`:
+    ///
+    ///     let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+    ///     let neighbors = ["Bethany", "Eric", "Forlani", "Greta"]
+    ///     let nonNeighbors = employees - neighbors
+    ///     print(nonNeighbors)
+    ///     // Prints "["Chris", "Diana", "Alicia"]"
+    ///
+    /// - Parameters:
+    ///   - a: A set.
+    ///   - b: Another set.
+    ///
+    /// - Returns: A new set.
+    @inlinable static func - (a: Self, b: Self) -> Self {
+        a.subtracting(b)
+    }
+    
     /// Returns a new set with the elements that are either in the first set or in
     /// the second, but not in both.
     ///

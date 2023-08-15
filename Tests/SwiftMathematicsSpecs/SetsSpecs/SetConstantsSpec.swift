@@ -1,4 +1,4 @@
-// SupersetsSpec.swift
+// SetConstantsSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,7 +18,7 @@ import Quick
 import Nimble
 @testable import SwiftMathematics
 
-final class SupersetsSpec: QuickSpec {
+final class SetConstantsSpec: QuickSpec {
     override class func spec() {
         describe("the empty set") {
             it("contains no members") {

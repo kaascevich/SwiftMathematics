@@ -52,5 +52,15 @@ final class SetOperationsSpec: QuickSpec {
                 expect(employees ∆ neighbors).to(contain("Diana", "Forlani", "Alicia"))
             }
         }
+        
+        describe("the set subtraction operators, ∖ and -") {
+            it("returns elements that are in the first set but not in the second") {
+                let employees: Set = ["Alicia", "Bethany", "Chris", "Diana", "Eric"]
+                let neighbors: Set = ["Bethany", "Eric", "Forlani", "Greta"]
+                
+                expect(employees ∖ neighbors).to(contain("Chris", "Diana", "Alicia"))
+                expect(employees - neighbors).to(contain("Chris", "Diana", "Alicia"))
+            }
+        }
     }
 }

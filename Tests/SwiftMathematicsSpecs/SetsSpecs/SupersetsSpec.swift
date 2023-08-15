@@ -1,4 +1,4 @@
-// ConstantsSpec.swift
+// SupersetsSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,7 +18,7 @@ import Quick
 import Nimble
 @testable import SwiftMathematics
 
-final class SetConstantsSpec: QuickSpec {
+final class SupersetsSpec: QuickSpec {
     override class func spec() {
         describe("the strict superset operators, ⊃ and ⊅") {
             describe("the strict superset operator, ⊃") {
