@@ -14,16 +14,14 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+// MARK: - Function Composition
+
+infix operator ∘ : FunctionCompositionPrecedence
+
 precedencegroup FunctionCompositionPrecedence {
     higherThan: MultiplicationPrecedence
     associativity: left
 }
-
-// MARK: - Operators
-
-infix operator ∘ : FunctionCompositionPrecedence
-
-// MARK: - Implementations
 
 /// Returns the composition of two functions.
 ///

@@ -14,17 +14,9 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: - Operators
+// MARK: - Not Equal
 
 infix operator ≠ : ComparisonPrecedence
-
-infix operator ≈ : ComparisonPrecedence
-infix operator ≉ : ComparisonPrecedence
-
-infix operator ≡ : ComparisonPrecedence
-infix operator ≢ : ComparisonPrecedence
-
-// MARK: - Implementations
 
 public extension Equatable {
     /// Returns a Boolean value indicating whether two values are not equal.
@@ -44,6 +36,11 @@ public extension Equatable {
     /// - Returns: Whether the values are not equal.
     static func ≠ (x: Self, y: Self) -> Bool { x != y }
 }
+
+// MARK: - Approximately Equal
+
+infix operator ≈ : ComparisonPrecedence
+infix operator ≉ : ComparisonPrecedence
 
 public extension FloatingPoint {
     /// Returns a Boolean value indicating whether the left-hand value
@@ -73,6 +70,11 @@ public extension FloatingPoint {
         !x.isApproximatelyEqual(to: y)
     }
 }
+
+// MARK: - Identicality
+
+infix operator ≡ : ComparisonPrecedence
+infix operator ≢ : ComparisonPrecedence
 
 /// Returns a Boolean value indicating whether two references point to the same
 /// object instance.

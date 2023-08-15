@@ -14,15 +14,10 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: - Operators
+// MARK: - Prefix Plus-Minus
 
 prefix operator ±
 prefix operator ∓
-
-infix operator ± : AdditionPrecedence
-infix operator ∓ : AdditionPrecedence
-
-// MARK: - Implementations
 
 public extension SignedNumeric {
     /// Returns a tuple containing the operand and its opposite, respectively.
@@ -36,7 +31,14 @@ public extension SignedNumeric {
     static prefix func ∓ (x: Self) -> (negative: Self, positive: Self) {
         (-x, +x)
     }
-    
+}
+
+// MARK: - Infix Plus-Minus
+
+infix operator ± : AdditionPrecedence
+infix operator ∓ : AdditionPrecedence
+
+public extension SignedNumeric {
     /// Returns a tuple containing, respectively, the sum and difference of the operands.
     ///
     /// On US English keyboard layouts, the "`±`" character can be entered using ⌥⇧= (option + shift + equal sign).

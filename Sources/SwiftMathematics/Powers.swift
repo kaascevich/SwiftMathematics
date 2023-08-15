@@ -16,18 +16,16 @@
 
 import Foundation
 
-precedencegroup PowerPrecedence {
-    higherThan: MultiplicationPrecedence
-}
-
-// MARK: - Operators
+// MARK: - Power Operators
 
 // Unfortunately, "^" is already taken by the standard library as the XOR
 // operator.
 infix operator ** : PowerPrecedence
 infix operator **= : AssignmentPrecedence
 
-// MARK: - Implementations
+precedencegroup PowerPrecedence {
+    higherThan: MultiplicationPrecedence
+}
 
 public extension ElementaryFunctions {
     static func ** (base: Self, exponent: Self) -> Self {

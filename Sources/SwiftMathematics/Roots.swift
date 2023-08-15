@@ -16,15 +16,11 @@
 
 import Foundation
 
-// MARK: - Operators
+// MARK: - Prefix Roots
 
 prefix operator √
 prefix operator ∛
 prefix operator ∜
-
-infix operator √ : PowerPrecedence
-
-// MARK: - Implementations
 
 public extension Double {
     /// Returns the square root of the given number, rounded to a representable
@@ -63,7 +59,13 @@ public extension Double {
     ///
     /// - Returns: The fourth root of the value.
     static prefix func ∜ (x: Self) -> Self { root(x, 4) }
-        
+}
+
+// MARK: - Infix Roots
+
+infix operator √ : PowerPrecedence
+
+public extension Double {
     /// Returns an arbitrary root of the given radicand, rounded to a representable
     /// value.
     ///

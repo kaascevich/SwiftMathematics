@@ -14,12 +14,10 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: - Operators
+// MARK: - Multiplication Operators
 
 infix operator × : MultiplicationPrecedence
 infix operator ×= : AssignmentPrecedence
-
-// MARK: - Implementations
 
 public extension Numeric {
     /// Multiplies two values and produces their product.

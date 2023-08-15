@@ -14,38 +14,20 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: - Operators
+// MARK: - Summations
 
 prefix operator ∑
-prefix operator ∏
 
-// MARK: - Simple Sequence Reducing
-
-public extension Sequence where Element: Numeric {
-    /// Returns the sum of a sequence of numbers.
-    ///
-    /// On US English keyboard layouts, the "`∑`" character can be entered using ⌥W.
-    ///
-    /// - Parameter sequence: A sequence of numbers.
-    ///
-    /// - Returns: The summed sequence.
-    static prefix func ∑ (sequence: Self) -> Element {
-        sequence.reduce(.zero, +)
-    }
-    
-    /// Returns the Cartesian product of a sequence of numbers.
-    ///
-    /// On US English keyboard layouts, the "`∏`" character can be entered using ⌥⇧P.
-    ///
-    /// - Parameter sequence: A sequence of numbers.
-    ///
-    /// - Returns: The product of the sequence's elements.
-    static prefix func ∏ (sequence: Self) -> Element {
-        sequence.reduce(1, *)
-    }
+/// Returns the sum of a sequence of numbers.
+///
+/// On US English keyboard layouts, the "`∑`" character can be entered using ⌥W.
+///
+/// - Parameter sequence: A sequence of numbers.
+///
+/// - Returns: The summed sequence.
+public prefix func ∑ <T: Sequence>(sequence: T) -> T.Element where T.Element: Numeric {
+    sequence.reduce(.zero, +)
 }
-
-// MARK: - Complex Sequence Reducing
 
 /// Returns the sum of a sequence of numbers between `bounds.from` and `bounds.to`.
 ///
@@ -67,6 +49,21 @@ public prefix func ∑ <T: BinaryInteger>(
     
     let sequence = Array(bounds.from...bounds.to).map(bounds.function)
     return ∑sequence
+}
+
+// MARK: - Cartesian Products
+
+prefix operator ∏
+
+/// Returns the Cartesian product of a sequence of numbers.
+///
+/// On US English keyboard layouts, the "`∏`" character can be entered using ⌥⇧P.
+///
+/// - Parameter sequence: A sequence of numbers.
+///
+/// - Returns: The product of the sequence's elements.
+public prefix func ∏ <T: Sequence>(sequence: T) -> T.Element where T.Element: Numeric {
+    sequence.reduce(1, *)
 }
 
 /// Returns the Cartesian product of a sequence of numbers between `bounds.from` and `bounds.to`.
