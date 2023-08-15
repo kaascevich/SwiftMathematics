@@ -48,3 +48,28 @@ public extension Set {
         !(sequence ∋ element)
     }
 }
+
+// MARK: - Subsets
+
+infix operator ⊂: ComparisonPrecedence
+infix operator ⊄: ComparisonPrecedence
+infix operator ⊆: ComparisonPrecedence
+infix operator ⊈: ComparisonPrecedence
+
+public extension Set {
+    static func ⊂ (subset: Self, sequence: Self) -> Bool {
+        subset.isStrictSubset(of: sequence)
+    }
+    
+    static func ⊄ (subset: Self, sequence: Self) -> Bool {
+        !(subset ⊂ sequence)
+    }
+    
+    static func ⊆ (subset: Self, sequence: Self) -> Bool {
+        subset.isSubset(of: sequence)
+    }
+    
+    static func ⊈ (subset: Self, sequence: Self) -> Bool {
+        !(subset ⊆ sequence)
+    }
+}

@@ -59,5 +59,59 @@ final class SetsSpec: QuickSpec {
                 }
             }
         }
+        
+        describe("the subset operators, ⊂, ⊄, ⊆, and ⊈") {
+            describe("the regular subset operators, ⊂ and ⊄") {
+                describe("the subset operator, ⊂") {
+                    it("returns true when the set contains the subset") {
+                        expect([1, 2, 3] ⊂ [1, 2, 3, 4, 5]).to(beTrue())
+                        expect([1, 3, 2] ⊂ [1, 2, 3, 4, 5]).to(beTrue())
+                        expect([1, 8, 2] ⊂ [1, 2, 3, 4, 5]).to(beFalse())
+                    }
+                    
+                    it("returns false when the set equals the subset") {
+                        expect([1, 2, 3, 4, 5] ⊂ [1, 2, 3, 4, 5]).to(beFalse())
+                    }
+                }
+                
+                describe("the inverse subset operator, ⊄") {
+                    it("returns false when the set contains the subset") {
+                        expect([1, 2, 3] ⊄ [1, 2, 3, 4, 5]).toNot(beTrue())
+                        expect([1, 3, 2] ⊄ [1, 2, 3, 4, 5]).toNot(beTrue())
+                        expect([1, 8, 2] ⊄ [1, 2, 3, 4, 5]).toNot(beFalse())
+                    }
+                    
+                    it("returns true when the set equals the subset") {
+                        expect([1, 2, 3, 4, 5] ⊄ [1, 2, 3, 4, 5]).toNot(beFalse())
+                    }
+                }
+            }
+            
+            describe("the subset-or-equal operators, ⊆ and ⊄") {
+                describe("the subset-or-equal operator, ⊆") {
+                    it("returns true when the set contains the subset") {
+                        expect([1, 2, 3] ⊆ [1, 2, 3, 4, 5]).to(beTrue())
+                        expect([1, 3, 2] ⊆ [1, 2, 3, 4, 5]).to(beTrue())
+                        expect([1, 8, 2] ⊆ [1, 2, 3, 4, 5]).to(beFalse())
+                    }
+                    
+                    it("returns true when the set equals the subset") {
+                        expect([1, 2, 3, 4, 5] ⊆ [1, 2, 3, 4, 5]).to(beTrue())
+                    }
+                }
+                
+                describe("the inverse subset-or-equal operator, ⊈") {
+                    it("returns false when the set contains the subset") {
+                        expect([1, 2, 3] ⊈ [1, 2, 3, 4, 5]).toNot(beTrue())
+                        expect([1, 3, 2] ⊈ [1, 2, 3, 4, 5]).toNot(beTrue())
+                        expect([1, 8, 2] ⊈ [1, 2, 3, 4, 5]).toNot(beFalse())
+                    }
+                    
+                    it("returns false when the set equals the subset") {
+                        expect([1, 2, 3, 4, 5] ⊈ [1, 2, 3, 4, 5]).toNot(beTrue())
+                    }
+                }
+            }
+        }
     }
 }
