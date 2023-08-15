@@ -25,12 +25,24 @@ final class SequencesSpec: QuickSpec {
                 let sequence = [1, 2, 3, 4, 5]
                 expect(∑sequence).to(equal(15))
             }
+            
+            it("sums the results of functions through a range of inputs") {
+                let f = { (x: Int) in x * x }
+                let sum = ∑(3, 6, f)
+                expect(sum).to(equal(86))
+            }
         }
         
         describe("the Cartesian product operator, ∏") {
             it("returns the Cartesian product of its input") {
                 let sequence = [1, 2, 3, 4, 5]
                 expect(∏sequence).to(equal(120))
+            }
+            
+            it("multiplies the results of functions through a range of inputs") {
+                let f = { (x: Int) in x + x }
+                let product = ∏(3, 6, f)
+                expect(product).to(equal(5760))
             }
         }
     }
