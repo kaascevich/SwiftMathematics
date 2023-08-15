@@ -25,7 +25,7 @@ prefix operator ∑
 /// - Parameter sequence: A sequence of numbers.
 ///
 /// - Returns: The summed sequence.
-public prefix func ∑ <T: Sequence>(sequence: T) -> T.Element where T.Element: Numeric {
+@inlinable public prefix func ∑ <T: Sequence>(sequence: T) -> T.Element where T.Element: Numeric {
     sequence.reduce(.zero, +)
 }
 
@@ -62,7 +62,7 @@ prefix operator ∏
 /// - Parameter sequence: A sequence of numbers.
 ///
 /// - Returns: The product of the sequence's elements.
-public prefix func ∏ <T: Sequence>(sequence: T) -> T.Element where T.Element: Numeric {
+@inlinable public prefix func ∏ <T: Sequence>(sequence: T) -> T.Element where T.Element: Numeric {
     sequence.reduce(1, *)
 }
 

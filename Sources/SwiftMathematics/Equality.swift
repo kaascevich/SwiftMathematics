@@ -34,7 +34,7 @@ public extension Equatable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: Whether the values are not equal.
-    static func ≠ (x: Self, y: Self) -> Bool { x != y }
+    @inlinable static func ≠ (x: Self, y: Self) -> Bool { x != y }
 }
 
 // MARK: - Approximately Equal
@@ -52,7 +52,7 @@ public extension FloatingPoint {
     /// On US English keyboard layouts, the "`≤`" character can be entered using ⌥X.
     ///
     /// - Returns: Whether the values are approximately equal.
-    static func ≈ (x: Self, y: Self) -> Bool {
+    @inlinable static func ≈ (x: Self, y: Self) -> Bool {
         x.isApproximatelyEqual(to: y)
     }
     
@@ -66,7 +66,7 @@ public extension FloatingPoint {
     ///   - y: Another value to compare.
     ///
     /// - Returns: Whether the values are not approximately equal.
-    static func ≉ (x: Self, y: Self) -> Bool {
+    @inlinable static func ≉ (x: Self, y: Self) -> Bool {
         !(x ≈ y)
     }
 }
@@ -124,7 +124,7 @@ infix operator ≢ : ComparisonPrecedence
 ///   - y: Another reference to compare.
 ///
 /// - Returns: Whether the references point to the same instance.
-public func ≡ (x: AnyObject?, y: AnyObject?) -> Bool { x === y }
+@inlinable public func ≡ (x: AnyObject?, y: AnyObject?) -> Bool { x === y }
 
 /// Returns a Boolean value indicating whether two references point to
 /// different object instances.
@@ -138,4 +138,4 @@ public func ≡ (x: AnyObject?, y: AnyObject?) -> Bool { x === y }
 ///   - y: Another reference to compare.
 ///
 /// - Returns: Whether the references do not point to the same instance.
-public func ≢ (x: AnyObject?, y: AnyObject?) -> Bool { x !== y }
+@inlinable public func ≢ (x: AnyObject?, y: AnyObject?) -> Bool { x !== y }

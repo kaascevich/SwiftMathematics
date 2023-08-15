@@ -54,7 +54,7 @@ public extension Set {
     /// - Returns: `true` if `element` exists in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
-    static func ∈ (element: Element, set: Self) -> Bool {
+    @inlinable static func ∈ (element: Element, set: Self) -> Bool {
         set.contains(element)
     }
     
@@ -80,7 +80,7 @@ public extension Set {
     /// - Returns: `true` if `element` does not exist in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
-    static func ∉ (element: Element, set: Self) -> Bool {
+    @inlinable static func ∉ (element: Element, set: Self) -> Bool {
         !(element ∈ set)
     }
     
@@ -106,7 +106,7 @@ public extension Set {
     /// - Returns: `true` if `element` exists in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
-    static func ∋ (set: Self, element: Element) -> Bool {
+    @inlinable static func ∋ (set: Self, element: Element) -> Bool {
         set.contains(element)
     }
     
@@ -132,7 +132,7 @@ public extension Set {
     /// - Returns: `true` if `element` does not exist in the set; otherwise, `false`.
     ///
     /// - Complexity: O(1)
-    static func ∌ (set: Self, element: Element) -> Bool {
+    @inlinable static func ∌ (set: Self, element: Element) -> Bool {
         !(set ∋ element)
     }
 }
@@ -168,7 +168,7 @@ public extension Set {
     ///
     /// - Returns: `true` if `subset` is a strict subset of `set`; otherwise,
     ///   `false`.
-    static func ⊂ (subset: Self, set: Self) -> Bool {
+    @inlinable static func ⊂ (subset: Self, set: Self) -> Bool {
         subset.isStrictSubset(of: set)
     }
     
@@ -194,7 +194,7 @@ public extension Set {
     ///
     /// - Returns: `true` if `subset` is not a strict subset of `set`; otherwise,
     ///   `false`.
-    static func ⊄ (subset: Self, set: Self) -> Bool {
+    @inlinable static func ⊄ (subset: Self, set: Self) -> Bool {
         !(subset ⊂ set)
     }
     
@@ -214,7 +214,7 @@ public extension Set {
     ///   - set: Another set.
     ///
     /// - Returns: `true` if `subset` is a subset of `set`; otherwise, `false`.
-    static func ⊆ (subset: Self, set: Self) -> Bool {
+    @inlinable static func ⊆ (subset: Self, set: Self) -> Bool {
         subset.isSubset(of: set)
     }
     
@@ -234,7 +234,7 @@ public extension Set {
     ///   - set: Another set.
     ///
     /// - Returns: `true` if `subset` is not a subset of `set`; otherwise, `false`.
-    static func ⊈ (subset: Self, set: Self) -> Bool {
+    @inlinable static func ⊈ (subset: Self, set: Self) -> Bool {
         !(subset ⊆ set)
     }
     
@@ -258,7 +258,7 @@ public extension Set {
     ///
     /// - Returns: `true` if `subset` is a subset of `set` and is not equal to
     ///   it; otherwise, `false`.
-    static func ⊊ (subset: Self, set: Self) -> Bool {
+    @inlinable static func ⊊ (subset: Self, set: Self) -> Bool {
         subset ⊂ set && subset != set
     }
 }
@@ -294,7 +294,7 @@ public extension Set {
     ///
     /// - Returns: `true` if `superset` is a strict superset of `set`; otherwise,
     ///   `false`.
-    static func ⊃ (superset: Self, set: Self) -> Bool {
+    @inlinable static func ⊃ (superset: Self, set: Self) -> Bool {
         superset.isStrictSuperset(of: set)
     }
     
@@ -320,7 +320,7 @@ public extension Set {
     ///
     /// - Returns: `true` if `superset` is not a strict superset of `set`; otherwise,
     ///   `false`.
-    static func ⊅ (superset: Self, set: Self) -> Bool {
+    @inlinable static func ⊅ (superset: Self, set: Self) -> Bool {
         !(superset ⊃ set)
     }
     
@@ -340,7 +340,7 @@ public extension Set {
     ///   - set: Another set.
     ///
     /// - Returns: `true` if `superset` is a superset of `set`; otherwise, `false`.
-    static func ⊇ (superset: Self, set: Self) -> Bool {
+    @inlinable static func ⊇ (superset: Self, set: Self) -> Bool {
         superset.isSuperset(of: set)
     }
     
@@ -360,7 +360,7 @@ public extension Set {
     ///   - set: Another set.
     ///
     /// - Returns: `true` if `superset` is not a superset of `set`; otherwise, `false`.
-    static func ⊉ (superset: Self, set: Self) -> Bool {
+    @inlinable static func ⊉ (superset: Self, set: Self) -> Bool {
         !(superset ⊇ set)
     }
     
@@ -384,7 +384,7 @@ public extension Set {
     ///
     /// - Returns: `true` if `superset` is a superset of `set` and is not equal to
     ///   it; otherwise, `false`.
-    static func ⊋ (superset: Self, set: Self) -> Bool {
+    @inlinable static func ⊋ (superset: Self, set: Self) -> Bool {
         superset ⊃ set && superset != set
     }
 }
@@ -414,7 +414,7 @@ public extension Set {
     ///   - b: Another set.
     ///
     /// - Returns: A new set.
-    static func ∩ (a: Self, b: Self) -> Self {
+    @inlinable static func ∩ (a: Self, b: Self) -> Self {
         a.intersection(b)
     }
     
@@ -444,7 +444,7 @@ public extension Set {
     ///   - b: Another set.
     ///
     /// - Returns: A new set with the unique elements of the given sets.
-    static func ∪ (a: Self, b: Self) -> Self {
+    @inlinable static func ∪ (a: Self, b: Self) -> Self {
         a.union(b)
     }
 }

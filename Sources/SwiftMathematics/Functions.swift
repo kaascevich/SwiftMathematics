@@ -30,6 +30,6 @@ precedencegroup FunctionCompositionPrecedence {
 ///   - g: Another function.
 ///
 /// - Returns: The composition of the two functions.
-public func ∘ <T>(f: @escaping (T) -> T, g: @escaping (T) -> T) -> (T) -> T {
+@inlinable public func ∘ <T>(f: @escaping (T) -> T, g: @escaping (T) -> T) -> (T) -> T {
     { x in f(g(x)) }
 }

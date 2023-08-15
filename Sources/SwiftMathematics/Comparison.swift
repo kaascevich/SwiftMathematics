@@ -50,7 +50,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≤ (x: Self, y: Self) -> Bool { x <= y }
+    @inlinable static func ≤ (x: Self, y: Self) -> Bool { x <= y }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is greater than or equal to that of the second argument.
@@ -62,7 +62,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≥ (x: Self, y: Self) -> Bool { x >= y }
+    @inlinable static func ≥ (x: Self, y: Self) -> Bool { x >= y }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is equal to or less than that of the second argument.
@@ -72,7 +72,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ⋜ (x: Self, y: Self) -> Bool { x <= y }
+    @inlinable static func ⋜ (x: Self, y: Self) -> Bool { x <= y }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is equal to or greater than that of the second argument.
@@ -82,7 +82,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ⋝ (x: Self, y: Self) -> Bool { x >= y }
+    @inlinable static func ⋝ (x: Self, y: Self) -> Bool { x >= y }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is less than, but not equal to, that of the second argument.
@@ -92,7 +92,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≨ (x: Self, y: Self) -> Bool { x < y && x != y }
+    @inlinable static func ≨ (x: Self, y: Self) -> Bool { x < y && x != y }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is greater than, but not equal to, that of the second
@@ -103,7 +103,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≩ (x: Self, y: Self) -> Bool { x > y && x != y }
+    @inlinable static func ≩ (x: Self, y: Self) -> Bool { x > y && x != y }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is not less than that of the second argument.
@@ -113,7 +113,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≮ (x: Self, y: Self) -> Bool { !(x < y) }
+    @inlinable static func ≮ (x: Self, y: Self) -> Bool { !(x < y) }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is not greater than that of the second argument.
@@ -123,7 +123,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≯ (x: Self, y: Self) -> Bool { !(x > y) }
+    @inlinable static func ≯ (x: Self, y: Self) -> Bool { !(x > y) }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is neither less than nor equal to that of the second
@@ -134,7 +134,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≰ (x: Self, y: Self) -> Bool { !(x ≤ y)}
+    @inlinable static func ≰ (x: Self, y: Self) -> Bool { !(x ≤ y)}
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is neither greater than nor equal to that of the second
@@ -145,7 +145,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≱ (x: Self, y: Self) -> Bool { !(x ≥ y) }
+    @inlinable @inlinable static func ≱ (x: Self, y: Self) -> Bool { !(x ≥ y) }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is less than or greater than that of the second argument.
@@ -165,7 +165,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≷ (x: Self, y: Self) -> Bool { x > y || x < y }
+    @inlinable static func ≷ (x: Self, y: Self) -> Bool { x > y || x < y }
 
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is neither less than nor greater than that of the second
@@ -176,7 +176,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≸ (x: Self, y: Self) -> Bool { !(x ≶ y)}
+    @inlinable static func ≸ (x: Self, y: Self) -> Bool { !(x ≶ y)}
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is neither greater than nor less than that of the second
@@ -187,7 +187,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ≹ (x: Self, y: Self) -> Bool { !(x ≷ y) }
+    @inlinable static func ≹ (x: Self, y: Self) -> Bool { !(x ≷ y) }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is less than, equal to, or greater than that of the second
@@ -198,7 +198,7 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ⋚ (x: Self, y: Self) -> Bool { x < y || x == y || x > y }
+    @inlinable static func ⋚ (x: Self, y: Self) -> Bool { x < y || x == y || x > y }
     
     /// Returns a Boolean value indicating whether the value of the first
     /// argument is greater than, equal to, or less than that of the second
@@ -209,5 +209,5 @@ public extension Comparable {
     ///   - y: Another value to compare.
     ///
     /// - Returns: The result of the comparison.
-    static func ⋛ (x: Self, y: Self) -> Bool { x > y || x == y || x < y }
+    @inlinable static func ⋛ (x: Self, y: Self) -> Bool { x > y || x == y || x < y }
 }

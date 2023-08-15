@@ -42,7 +42,7 @@ public extension Numeric {
     ///   - y: The second value to multiply.
     ///
     /// - Returns: The result of the multiplication.
-    static func × (x: Self, y: Self) -> Self { x * y }
+    @inlinable static func × (x: Self, y: Self) -> Self { x * y }
     
     /// Multiplies two values and stores the result in the left-hand-side
     /// variable.
@@ -50,5 +50,5 @@ public extension Numeric {
     /// - Parameters:
     ///   - lhs: The first value to multiply.
     ///   - rhs: The second value to multiply.
-    static func ×= (x: inout Self, y: Self) { x *= y }
+    @inlinable static func ×= (x: inout Self, y: Self) { x *= y }
 }

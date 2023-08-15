@@ -28,11 +28,11 @@ precedencegroup PowerPrecedence {
 }
 
 public extension ElementaryFunctions {
-    static func ** (base: Self, exponent: Self) -> Self {
+    @inlinable static func ** (base: Self, exponent: Self) -> Self {
         pow(base, exponent)
     }
     
-    static func **= (base: inout Self, exponent: Self) {
+    @inlinable static func **= (base: inout Self, exponent: Self) {
         base = pow(base, exponent)
     }
 }
