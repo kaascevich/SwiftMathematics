@@ -14,6 +14,14 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
+// MARK: - Constants
+
+/// A Boolean value equal to `true`.
+public let T = true
+
+/// A Boolean value equal to `false`.
+public let F = false
+
 // MARK: - Logical NOT
 
 prefix operator ¬
@@ -33,10 +41,10 @@ public extension Bool {
     ///     }
     ///     // Prints "You look nice today!"
     ///
-    /// |  Value  | Result  |
-    /// |---------|---------|
-    /// | `true`  | `false` |
-    /// | `false` | `true`  |
+    /// | `x` | `¬x` |
+    /// |-----|:----:|
+    /// | `T` | `F`  |
+    /// | `F` | `T`  |
     ///
     /// On US English keyboard layouts, the "`¬`" character can be entered using ⌥L.
     ///
@@ -82,12 +90,12 @@ public extension Bool {
     ///   `true` and `y` is evaluated. The result of evaluating `y` is the
     ///   result of the `∧` operation.
     ///
-    /// |     Values     | Result  |
-    /// |----------------|---------|
-    /// |  `true, true`  | `true`  |
-    /// |  `true, false` | `false` |
-    /// | `false, true`  | `false` |
-    /// | `false, false` | `false` |
+    /// | `x` | `y` | `x ∧ y` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `T`   |
+    /// | `T` | `F` |   `F`   |
+    /// | `F` | `T` |   `F`   |
+    /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
     ///   - x: The left-hand side of the operation.
@@ -134,12 +142,12 @@ public extension Bool {
     ///   is evaluated. The result of evaluating `y` is the result of the `∨`
     ///   operation.
     ///
-    /// |     Values     | Result  |
-    /// |----------------|---------|
-    /// |  `true, true`  | `true`  |
-    /// |  `true, false` | `true`  |
-    /// | `false, true`  | `true`  |
-    /// | `false, false` | `false` |
+    /// | `x` | `y` | `x ∨ y` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `T`   |
+    /// | `T` | `F` |   `T`   |
+    /// | `F` | `T` |   `T`   |
+    /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
     ///   - x: The left-hand side of the operation.
@@ -164,12 +172,12 @@ public extension Bool {
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
-    /// |     Values     | Result  |
-    /// |----------------|---------|
-    /// |  `true, true`  | `false` |
-    /// |  `true, false` | `true`  |
-    /// | `false, true`  | `true`  |
-    /// | `false, false` | `false` |
+    /// | `x` | `y` | `x ⊻ y` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `F`   |
+    /// | `T` | `F` |   `T`   |
+    /// | `F` | `T` |   `T`   |
+    /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
     ///   - x: The left-hand side of the operation.
@@ -186,12 +194,12 @@ public extension Bool {
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
-    /// |     Values     | Result  |
-    /// |----------------|---------|
-    /// |  `true, true`  | `false` |
-    /// |  `true, false` | `true`  |
-    /// | `false, true`  | `true`  |
-    /// | `false, false` | `false` |
+    /// | `x` | `y` | `x ⊕ y` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `F`   |
+    /// | `T` | `F` |   `T`   |
+    /// | `F` | `T` |   `T`   |
+    /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
     ///   - x: The left-hand side of the operation.
@@ -208,12 +216,12 @@ public extension Bool {
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
-    /// |     Values     | Result  |
-    /// |----------------|---------|
-    /// |  `true, true`  | `false` |
-    /// |  `true, false` | `true`  |
-    /// | `false, true`  | `true`  |
-    /// | `false, false` | `false` |
+    /// | `x` | `y` | `x ≢ y` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `F`   |
+    /// | `T` | `F` |   `T`   |
+    /// | `F` | `T` |   `T`   |
+    /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
     ///   - x: The left-hand side of the operation.
