@@ -29,19 +29,38 @@ final class LogicSpec: QuickSpec {
         
         describe("the logical AND operator, ∧") {
             it("returns the logical AND of its inputs") {
-                expect(true ∧ true).to(beTrue())
-                expect(true ∧ false).to(beFalse())
-                expect(false ∧ true).to(beFalse())
+                expect(true  ∧ true ).to(beTrue())
+                expect(true  ∧ false).to(beFalse())
+                expect(false ∧ true ).to(beFalse())
                 expect(false ∧ false).to(beFalse())
             }
         }
         
         describe("the logical OR operator, ∨") {
             it("returns the logical OR of its inputs") {
-                expect(true ∨ true).to(beTrue())
-                expect(true ∨ false).to(beTrue())
-                expect(false ∨ true).to(beTrue())
+                expect(true  ∨ true ).to(beTrue())
+                expect(true  ∨ false).to(beTrue())
+                expect(false ∨ true ).to(beTrue())
                 expect(false ∨ false).to(beFalse())
+            }
+        }
+        
+        describe("the logical XOR operators, ⊻, ⊕, and ≢") {
+            it("returns the logical XOR of its inputs") {
+                expect(true  ⊻ true ).to(beFalse())
+                expect(true  ⊻ false).to(beTrue())
+                expect(false ⊻ true ).to(beTrue())
+                expect(false ⊻ false).to(beFalse())
+                
+                expect(true  ⊕ true ).to(beFalse())
+                expect(true  ⊕ false).to(beTrue())
+                expect(false ⊕ true ).to(beTrue())
+                expect(false ⊕ false).to(beFalse())
+                
+                expect(true  ≢ true ).to(beFalse())
+                expect(true  ≢ false).to(beTrue())
+                expect(false ≢ true ).to(beTrue())
+                expect(false ≢ false).to(beFalse())
             }
         }
     }

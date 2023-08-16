@@ -33,6 +33,11 @@ public extension Bool {
     ///     }
     ///     // Prints "You look nice today!"
     ///
+    /// |  Value  | Result  |
+    /// |---------|---------|
+    /// | `true`  | `false` |
+    /// | `false` | `true`  |
+    ///
     /// On US English keyboard layouts, the "`¬`" character can be entered using ⌥L.
     ///
     /// - Parameter value: The Boolean value to negate.
@@ -76,6 +81,13 @@ public extension Bool {
     /// - When `measurements.count` is greater than zero, `x` evaluates to
     ///   `true` and `y` is evaluated. The result of evaluating `y` is the
     ///   result of the `∧` operation.
+    ///
+    /// |     Values     | Result  |
+    /// |----------------|---------|
+    /// |  `true, true`  | `true`  |
+    /// |  `true, false` | `false` |
+    /// | `false, true`  | `false` |
+    /// | `false, false` | `false` |
     ///
     /// - Parameters:
     ///   - x: The left-hand side of the operation.
@@ -122,6 +134,13 @@ public extension Bool {
     ///   is evaluated. The result of evaluating `y` is the result of the `∨`
     ///   operation.
     ///
+    /// |     Values     | Result  |
+    /// |----------------|---------|
+    /// |  `true, true`  | `true`  |
+    /// |  `true, false` | `true`  |
+    /// | `false, true`  | `true`  |
+    /// | `false, false` | `false` |
+    ///
     /// - Parameters:
     ///   - x: The left-hand side of the operation.
     ///   - y: The right-hand side of the operation.
@@ -129,5 +148,79 @@ public extension Bool {
     /// - Returns: The logical OR of `x` and `y`.
     static func ∨ (x: Self, y: @autoclosure () throws -> Self) rethrows -> Self {
         try (x || y())
+    }
+}
+
+// MARK: - Logical XOR
+
+infix operator ⊻ : LogicalDisjunctionPrecedence
+infix operator ⊕ : LogicalDisjunctionPrecedence
+infix operator ≢ : LogicalDisjunctionPrecedence
+
+public extension Bool {
+    /// Performs a logical XOR operation on two Boolean values.
+    ///
+    /// The logical OR operator (`⊻`) combines two Boolean values and returns
+    /// `true` if exactly one of the values is `true`. If both values are
+    /// `false`, or if both are `true`, the operator returns `false`.
+    ///
+    /// |     Values     | Result  |
+    /// |----------------|---------|
+    /// |  `true, true`  | `false` |
+    /// |  `true, false` | `true`  |
+    /// | `false, true`  | `true`  |
+    /// | `false, false` | `false` |
+    ///
+    /// - Parameters:
+    ///   - x: The left-hand side of the operation.
+    ///   - y: The right-hand side of the operation.
+    ///
+    /// - Returns: The logical XOR of `x` and `y`.
+    static func ⊻ (x: Self, y: Self) -> Self {
+        x != y
+    }
+    
+    /// Performs a logical XOR operation on two Boolean values.
+    ///
+    /// The logical OR operator (`⊕`) combines two Boolean values and returns
+    /// `true` if exactly one of the values is `true`. If both values are
+    /// `false`, or if both are `true`, the operator returns `false`.
+    ///
+    /// |     Values     | Result  |
+    /// |----------------|---------|
+    /// |  `true, true`  | `false` |
+    /// |  `true, false` | `true`  |
+    /// | `false, true`  | `true`  |
+    /// | `false, false` | `false` |
+    ///
+    /// - Parameters:
+    ///   - x: The left-hand side of the operation.
+    ///   - y: The right-hand side of the operation.
+    ///
+    /// - Returns: The logical XOR of `x` and `y`.
+    static func ⊕ (x: Self, y: Self) -> Self {
+        x ⊻ y
+    }
+    
+    /// Performs a logical XOR operation on two Boolean values.
+    ///
+    /// The logical OR operator (`≢`) combines two Boolean values and returns
+    /// `true` if exactly one of the values is `true`. If both values are
+    /// `false`, or if both are `true`, the operator returns `false`.
+    ///
+    /// |     Values     | Result  |
+    /// |----------------|---------|
+    /// |  `true, true`  | `false` |
+    /// |  `true, false` | `true`  |
+    /// | `false, true`  | `true`  |
+    /// | `false, false` | `false` |
+    ///
+    /// - Parameters:
+    ///   - x: The left-hand side of the operation.
+    ///   - y: The right-hand side of the operation.
+    ///
+    /// - Returns: The logical XOR of `x` and `y`.
+    static func ≢ (x: Self, y: Self) -> Self {
+        x ⊻ y
     }
 }
