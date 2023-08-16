@@ -33,17 +33,17 @@ public extension Bool {
     ///     }
     ///     // Prints "You look nice today!"
     ///
-    /// | `x` | `¬x` |
+    /// | `p` | `¬p` |
     /// |-----|:----:|
     /// | `T` | `F`  |
     /// | `F` | `T`  |
     ///
     /// On US English keyboard layouts, the "`¬`" character can be entered using ⌥L.
     ///
-    /// - Parameter value: The Boolean value to negate.
+    /// - Parameter p: The Boolean value to negate.
     ///
-    /// - Returns: The inverse of `value`.
-    static prefix func ¬ (value: Self) -> Self {
-        !value
+    /// - Returns: The inverse of `p`.
+    static prefix func ¬ (p: Self) -> Self {
+        !p
     }
 }

@@ -1,4 +1,4 @@
-// LogicOR.swift
+// LogicImplication.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -14,9 +14,15 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: - Logical OR
+// MARK: - Material Implication
 
-infix operator ∨: LogicalDisjunctionPrecedence
+precedencegroup MaterialImplicationPrecedence {
+    lowerThan: TernaryPrecedence
+    higherThan: AssignmentPrecedence
+    associativity: right
+}
+
+infix operator →: MaterialImplicationPrecedence
 
 public extension Bool {
     /// Performs a logical OR operation on two Boolean values.
@@ -27,41 +33,22 @@ public extension Bool {
     ///
     /// This operator uses short-circuit evaluation: The left-hand side (`p`) is
     /// evaluated first, and the right-hand side (`q`) is evaluated only if `p`
-    /// evaluates to `false`. For example:
+    /// evaluates to `true`. For example:
     ///
-    ///     let majorErrors: Set = ["No first name", "No last name", ...]
-    ///     let error = ""
-    ///
-    ///     if error.isEmpty ∨ !majorErrors.contains(error) {
-    ///         print("No major errors detected")
-    ///     } else {
-    ///         print("Major error: \(error)")
-    ///     }
-    ///     // Prints "No major errors detected"
-    ///
-    /// In this example, `p` tests whether `error` is an empty string.
-    /// Evaluation of the `∨` operator is one of the following:
-    ///
-    /// - When `error` is an empty string, `p` evaluates to `true` and `q` is
-    ///   not evaluated, skipping the call to `majorErrors.contains(_:)`. The
-    ///   result of the operation is `true`.
-    /// - When `error` is not an empty string, `p` evaluates to `false` and `q`
-    ///   is evaluated. The result of evaluating `q` is the result of the `∨`
-    ///   operation.
-    ///
-    /// | `p` | `q` | `p ∨ q` |
+    /// | `p` | `q` | `p → q` |
     /// |-----|-----|:-------:|
     /// | `T` | `T` |   `T`   |
-    /// | `T` | `F` |   `T`   |
+    /// | `T` | `F` |   `F`   |
     /// | `F` | `T` |   `T`   |
-    /// | `F` | `F` |   `F`   |
+    /// | `F` | `F` |   `T`   |
     ///
     /// - Parameters:
     ///   - p: The left-hand side of the operation.
     ///   - q: The right-hand side of the operation.
     ///
-    /// - Returns: The logical OR of `p` and `q`.
-    static func ∨ (p: Self, q: @autoclosure () throws -> Self) rethrows -> Self {
-        try (p || q())
+    /// - Returns: If `p` is `true` and `q` is `false`, then `false`; otherwise,
+    ///   `true`.
+    static func → (p: Self, q: @autoclosure () throws -> Self) rethrows -> Self {
+        try ¬(p ∧ ¬q())
     }
 }

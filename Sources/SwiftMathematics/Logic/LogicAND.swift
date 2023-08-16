@@ -25,8 +25,8 @@ public extension Bool {
     /// `true` if both of the values are `true`. If either of the values is
     /// `false`, the operator returns `false`.
     ///
-    /// This operator uses short-circuit evaluation: The left-hand side (`x`) is
-    /// evaluated first, and the right-hand side (`y`) is evaluated only if `x`
+    /// This operator uses short-circuit evaluation: The left-hand side (`p`) is
+    /// evaluated first, and the right-hand side (`q`) is evaluated only if `p`
     /// evaluates to `true`. For example:
     ///
     ///     let measurements = [7.44, 6.51, 4.74, 5.88, 6.27, 6.12, 7.76]
@@ -37,18 +37,18 @@ public extension Bool {
     ///     }
     ///     // Prints "Average measurement is less than 6.5"
     ///
-    /// In this example, `x` tests whether `measurements.count` is greater than
+    /// In this example, `p` tests whether `measurements.count` is greater than
     /// zero. Evaluation of the `∧` operator is one of the following:
     ///
-    /// - When `measurements.count` is equal to zero, `x` evaluates to `false`
-    ///   and `y` is not evaluated, preventing a divide-by-zero error in the
+    /// - When `measurements.count` is equal to zero, `p` evaluates to `false`
+    ///   and `q` is not evaluated, preventing a divide-by-zero error in the
     ///   expression `sum / Double(measurements.count)`. The result of the
     ///   operation is `false`.
-    /// - When `measurements.count` is greater than zero, `x` evaluates to
-    ///   `true` and `y` is evaluated. The result of evaluating `y` is the
+    /// - When `measurements.count` is greater than zero, `p` evaluates to
+    ///   `true` and `y` is evaluated. The result of evaluating `q` is the
     ///   result of the `∧` operation.
     ///
-    /// | `x` | `y` | `x ∧ y` |
+    /// | `p` | `q` | `p ∧ q` |
     /// |-----|-----|:-------:|
     /// | `T` | `T` |   `T`   |
     /// | `T` | `F` |   `F`   |
@@ -56,11 +56,11 @@ public extension Bool {
     /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
-    ///   - x: The left-hand side of the operation.
-    ///   - y: The right-hand side of the operation.
+    ///   - p: The left-hand side of the operation.
+    ///   - q: The right-hand side of the operation.
     ///
-    /// - Returns: The logical AND of `x` and `y`.
-    static func ∧ (x: Self, y: @autoclosure () throws -> Self) rethrows -> Self {
-        try (x && y())
+    /// - Returns: The logical AND of `p` and `q`.
+    static func ∧ (p: Self, q: @autoclosure () throws -> Self) rethrows -> Self {
+        try (p && q())
     }
 }

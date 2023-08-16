@@ -27,7 +27,7 @@ public extension Bool {
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
-    /// | `x` | `y` | `x ⊻ y` |
+    /// | `p` | `q` | `p ⊻ q` |
     /// |-----|-----|:-------:|
     /// | `T` | `T` |   `F`   |
     /// | `T` | `F` |   `T`   |
@@ -35,12 +35,12 @@ public extension Bool {
     /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
-    ///   - x: The left-hand side of the operation.
-    ///   - y: The right-hand side of the operation.
+    ///   - p: The left-hand side of the operation.
+    ///   - q: The right-hand side of the operation.
     ///
-    /// - Returns: The logical XOR of `x` and `y`.
-    static func ⊻ (x: Self, y: Self) -> Self {
-        x != y
+    /// - Returns: The logical XOR of `p` and `q`.
+    static func ⊻ (p: Self, q: Self) -> Self {
+        p != q
     }
     
     /// Performs a logical XOR operation on two Boolean values.
@@ -49,7 +49,7 @@ public extension Bool {
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
-    /// | `x` | `y` | `x ⊕ y` |
+    /// | `p` | `q` | `p ⊕ q` |
     /// |-----|-----|:-------:|
     /// | `T` | `T` |   `F`   |
     /// | `T` | `F` |   `T`   |
@@ -57,12 +57,12 @@ public extension Bool {
     /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
-    ///   - x: The left-hand side of the operation.
-    ///   - y: The right-hand side of the operation.
+    ///   - p: The left-hand side of the operation.
+    ///   - q: The right-hand side of the operation.
     ///
-    /// - Returns: The logical XOR of `x` and `y`.
-    static func ⊕ (x: Self, y: Self) -> Self {
-        x ⊻ y
+    /// - Returns: The logical XOR of `p` and `q`.
+    static func ⊕ (p: Self, q: Self) -> Self {
+        p ⊻ q
     }
     
     /// Performs a logical XOR operation on two Boolean values.
@@ -71,7 +71,7 @@ public extension Bool {
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
-    /// | `x` | `y` | `x ≢ y` |
+    /// | `p` | `q` | `p ≢ q` |
     /// |-----|-----|:-------:|
     /// | `T` | `T` |   `F`   |
     /// | `T` | `F` |   `T`   |
@@ -79,11 +79,11 @@ public extension Bool {
     /// | `F` | `F` |   `F`   |
     ///
     /// - Parameters:
-    ///   - x: The left-hand side of the operation.
-    ///   - y: The right-hand side of the operation.
+    ///   - p: The left-hand side of the operation.
+    ///   - q: The right-hand side of the operation.
     ///
-    /// - Returns: The logical XOR of `x` and `y`.
-    static func ≢ (x: Self, y: Self) -> Self {
-        x ⊻ y
+    /// - Returns: The logical XOR of `p` and `q`.
+    static func ≢ (p: Self, q: Self) -> Self {
+        p ⊻ q
     }
 }

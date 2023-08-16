@@ -1,4 +1,4 @@
-// LogicConstantsSpec.swift
+// LogicImplicationSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,17 +18,14 @@ import Quick
 import Nimble
 @testable import SwiftMathematics
 
-final class LogicConstantsSpec: QuickSpec {
+final class LogicImplicationSpec: QuickSpec {
     override class func spec() {
-        describe("the Boolean value T") {
-            it("equals true") {
-                expect(T).to(beTrue())
-            }
-        }
-        
-        describe("the Boolean value F") {
-            it("equals false") {
-                expect(F).to(beFalse())
+        describe("the material implication operator, →") {
+            it("only returns false if p is true and q is false") {
+                expect(true  → true ).to(beTrue())
+                expect(true  → false).to(beFalse())
+                expect(false → true ).to(beTrue())
+                expect(false → false).to(beTrue())
             }
         }
     }
