@@ -68,8 +68,8 @@ public extension Bool {
     /// Performs a logical NAND operation on two Boolean values.
     ///
     /// The logical NAND operator (`↑`) combines two Boolean values and returns
-    /// `false` if both of the values are `true`. If either of the values is
-    /// `false`, the operator returns `true`.
+    /// `true` if either of the values are `false`. If both of the values are
+    /// `true`, the operator returns `false`.
     ///
     /// This operator uses short-circuit evaluation: The left-hand side (`p`) is
     /// evaluated first, and the right-hand side (`q`) is evaluated only if `p`
@@ -93,7 +93,7 @@ public extension Bool {
     ///   expression `sum / Double(measurements.count)`. The result of the
     ///   operation is `true`.
     /// - When `measurements.count` is greater than zero, `p` evaluates to
-    ///   `true` and `y` is evaluated. The result of evaluating `q` is the
+    ///   `true` and `y` is evaluated. The result of evaluating `¬q` is the
     ///   result of the `↑` operation.
     ///
     /// | `p` | `q` | `p ↑ q` |
