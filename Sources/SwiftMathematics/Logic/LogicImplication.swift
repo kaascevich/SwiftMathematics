@@ -22,6 +22,7 @@ precedencegroup MaterialImplicationPrecedence {
 }
 
 infix operator → : MaterialImplicationPrecedence
+infix operator ← : MaterialImplicationPrecedence
 
 public extension Bool {
     /// The material implication operator.
@@ -49,6 +50,33 @@ public extension Bool {
     ///   `true`.
     static func → (p: Self, q: @autoclosure () throws -> Self) rethrows -> Self {
         try ¬(p ∧ ¬q())
+    }
+    
+    /// The reverse material implication operator.
+    ///
+    /// The reverse material implication operator (`←`) takes two Boolean values
+    /// and returns `false` if the second value is `true` and the first is `false`.
+    /// Otherwise, it returns `true`.
+    ///
+    /// This operator uses short-circuit evaluation: The right-hand side (`q`) is
+    /// evaluated first, and the left-hand side (`p`) is evaluated only if `q`
+    /// evaluates to `true`.
+    ///
+    /// | `p` | `q` | `p ← q` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `T`   |
+    /// | `T` | `F` |   `T`   |
+    /// | `F` | `T` |   `F`   |
+    /// | `F` | `F` |   `T`   |
+    ///
+    /// - Parameters:
+    ///   - p: The left-hand side of the operation.
+    ///   - q: The right-hand side of the operation.
+    ///
+    /// - Returns: If `q` is `true` and `p` is `false`, then `false`; otherwise,
+    ///   `true`.
+    static func ← (p: @autoclosure () throws -> Self, q: Self) rethrows -> Self {
+        try ¬(q ∧ ¬p())
     }
 }
 

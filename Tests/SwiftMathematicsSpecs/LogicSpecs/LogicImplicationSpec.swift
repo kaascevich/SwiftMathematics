@@ -20,12 +20,23 @@ import Nimble
 
 final class LogicImplicationSpec: QuickSpec {
     override class func spec() {
-        describe("the material implication operator, →") {
-            it("only returns false if p is true and q is false") {
-                expect(true  → true ).to(beTrue())
-                expect(true  → false).to(beFalse())
-                expect(false → true ).to(beTrue())
-                expect(false → false).to(beTrue())
+        describe("the material implication operators, → and ←") {
+            describe("the regular material implication operator, →") {
+                it("only returns false if p is true and q is false") {
+                    expect(true  → true ).to(beTrue())
+                    expect(true  → false).to(beFalse())
+                    expect(false → true ).to(beTrue())
+                    expect(false → false).to(beTrue())
+                }
+            }
+            
+            describe("the reverse material implication operator, ←") {
+                it("only returns false if p is false and q is true") {
+                    expect(true  ← true ).to(beTrue())
+                    expect(true  ← false).to(beTrue())
+                    expect(false ← true ).to(beFalse())
+                    expect(false ← false).to(beTrue())
+                }
             }
         }
         
