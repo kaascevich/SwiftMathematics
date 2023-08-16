@@ -1,4 +1,4 @@
-// LogicSpec.swift
+// LogicXORSpec.swift
 // Copyright © 2023 Kaleb A. Ascevich
 //
 // This package is free software: you can redistribute it and/or modify it
@@ -18,47 +18,8 @@ import Quick
 import Nimble
 @testable import SwiftMathematics
 
-final class LogicSpec: QuickSpec {
+final class LogicXORSpec: QuickSpec {
     override class func spec() {
-        describe("the Boolean values T and F") {
-            describe("the Boolean value T") {
-                it("equals true") {
-                    expect(T).to(beTrue())
-                }
-            }
-            
-            describe("the Boolean value F") {
-                it("equals false") {
-                    expect(F).to(beFalse())
-                }
-            }
-        }
-        
-        describe("the logical NOT operator, ¬") {
-            it("returns the logical NOT of its input") {
-                expect(¬true).to(beFalse())
-                expect(¬false).to(beTrue())
-            }
-        }
-        
-        describe("the logical AND operator, ∧") {
-            it("returns the logical AND of its inputs") {
-                expect(true  ∧ true ).to(beTrue())
-                expect(true  ∧ false).to(beFalse())
-                expect(false ∧ true ).to(beFalse())
-                expect(false ∧ false).to(beFalse())
-            }
-        }
-        
-        describe("the logical OR operator, ∨") {
-            it("returns the logical OR of its inputs") {
-                expect(true  ∨ true ).to(beTrue())
-                expect(true  ∨ false).to(beTrue())
-                expect(false ∨ true ).to(beTrue())
-                expect(false ∨ false).to(beFalse())
-            }
-        }
-        
         describe("the logical XOR operators, ⊻, ⊕, and ≢") {
             it("returns the logical XOR of its inputs") {
                 expect(true  ⊻ true ).to(beFalse())
