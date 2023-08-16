@@ -36,7 +36,98 @@ public extension Bool {
     /// On US English keyboard layouts, the "`¬`" character can be entered using ⌥L.
     ///
     /// - Parameter value: The Boolean value to negate.
+    ///
+    /// - Returns: The inverse of `value`.
     static prefix func ¬ (value: Self) -> Self {
         !value
+    }
+}
+
+// MARK: - Logical AND
+
+infix operator ∧: LogicalConjunctionPrecedence
+
+public extension Bool {
+    /// Performs a logical AND operation on two Boolean values.
+    ///
+    /// The logical AND operator (`∧`) combines two Boolean values and returns
+    /// `true` if both of the values are `true`. If either of the values is
+    /// `false`, the operator returns `false`.
+    ///
+    /// This operator uses short-circuit evaluation: The left-hand side (`x`) is
+    /// evaluated first, and the right-hand side (`y`) is evaluated only if `x`
+    /// evaluates to `true`. For example:
+    ///
+    ///     let measurements = [7.44, 6.51, 4.74, 5.88, 6.27, 6.12, 7.76]
+    ///     let sum = measurements.reduce(0, +)
+    ///
+    ///     if measurements.count > 0 ∧ sum / Double(measurements.count) < 6.5 {
+    ///         print("Average measurement is less than 6.5")
+    ///     }
+    ///     // Prints "Average measurement is less than 6.5"
+    ///
+    /// In this example, `x` tests whether `measurements.count` is greater than
+    /// zero. Evaluation of the `∧` operator is one of the following:
+    ///
+    /// - When `measurements.count` is equal to zero, `x` evaluates to `false`
+    ///   and `y` is not evaluated, preventing a divide-by-zero error in the
+    ///   expression `sum / Double(measurements.count)`. The result of the
+    ///   operation is `false`.
+    /// - When `measurements.count` is greater than zero, `x` evaluates to
+    ///   `true` and `y` is evaluated. The result of evaluating `y` is the
+    ///   result of the `∧` operation.
+    ///
+    /// - Parameters:
+    ///   - x: The left-hand side of the operation.
+    ///   - y: The right-hand side of the operation.
+    ///
+    /// - Returns: The logical AND of `x` and `y`.
+    static func ∧ (x: Self, y: @autoclosure () throws -> Self) rethrows -> Self {
+        try (x && y())
+    }
+}
+
+// MARK: - Logical OR
+
+infix operator ∨: LogicalDisjunctionPrecedence
+
+public extension Bool {
+    /// Performs a logical OR operation on two Boolean values.
+    ///
+    /// The logical OR operator (`∨`) combines two Boolean values and returns
+    /// `true` if at least one of the values is `true`. If both values are
+    /// `false`, the operator returns `false`.
+    ///
+    /// This operator uses short-circuit evaluation: The left-hand side (`x`) is
+    /// evaluated first, and the right-hand side (`y`) is evaluated only if `x`
+    /// evaluates to `false`. For example:
+    ///
+    ///     let majorErrors: Set = ["No first name", "No last name", ...]
+    ///     let error = ""
+    ///
+    ///     if error.isEmpty ∨ !majorErrors.contains(error) {
+    ///         print("No major errors detected")
+    ///     } else {
+    ///         print("Major error: \(error)")
+    ///     }
+    ///     // Prints "No major errors detected"
+    ///
+    /// In this example, `x` tests whether `error` is an empty string.
+    /// Evaluation of the `∨` operator is one of the following:
+    ///
+    /// - When `error` is an empty string, `x` evaluates to `true` and `y` is
+    ///   not evaluated, skipping the call to `majorErrors.contains(_:)`. The
+    ///   result of the operation is `true`.
+    /// - When `error` is not an empty string, `x` evaluates to `false` and `y`
+    ///   is evaluated. The result of evaluating `y` is the result of the `∨`
+    ///   operation.
+    ///
+    /// - Parameters:
+    ///   - x: The left-hand side of the operation.
+    ///   - y: The right-hand side of the operation.
+    ///
+    /// - Returns: The logical OR of `x` and `y`.
+    static func ∨ (x: Self, y: @autoclosure () throws -> Self) rethrows -> Self {
+        try (x || y())
     }
 }

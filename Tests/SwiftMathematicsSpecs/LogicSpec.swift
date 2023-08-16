@@ -26,5 +26,23 @@ final class LogicSpec: QuickSpec {
                 expect(¬false).to(beTrue())
             }
         }
+        
+        describe("the logical AND operator, ∧") {
+            it("returns the logical AND of its inputs") {
+                expect(true ∧ true).to(beTrue())
+                expect(true ∧ false).to(beFalse())
+                expect(false ∧ true).to(beFalse())
+                expect(false ∧ false).to(beFalse())
+            }
+        }
+        
+        describe("the logical OR operator, ∨") {
+            it("returns the logical OR of its inputs") {
+                expect(true ∨ true).to(beTrue())
+                expect(true ∨ false).to(beTrue())
+                expect(false ∨ true).to(beTrue())
+                expect(false ∨ false).to(beFalse())
+            }
+        }
     }
 }
