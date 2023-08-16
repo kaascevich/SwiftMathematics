@@ -20,6 +20,20 @@ import Nimble
 
 final class LogicSpec: QuickSpec {
     override class func spec() {
+        describe("the Boolean values T and F") {
+            describe("the Boolean value T") {
+                it("equals true") {
+                    expect(T).to(beTrue())
+                }
+            }
+            
+            describe("the Boolean value F") {
+                it("equals false") {
+                    expect(F).to(beFalse())
+                }
+            }
+        }
+        
         describe("the logical NOT operator, ¬") {
             it("returns the logical NOT of its input") {
                 expect(¬true).to(beFalse())
