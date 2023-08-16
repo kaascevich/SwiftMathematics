@@ -21,7 +21,7 @@ infix operator ≢ : LogicalDisjunctionPrecedence
 public extension Bool {
     /// Performs a logical XOR operation on two Boolean values.
     ///
-    /// The logical OR operator (`⊻`) combines two Boolean values and returns
+    /// The logical XOR operator (`⊻`) combines two Boolean values and returns
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
@@ -43,7 +43,7 @@ public extension Bool {
     
     /// Performs a logical XOR operation on two Boolean values.
     ///
-    /// The logical OR operator (`⊕`) combines two Boolean values and returns
+    /// The logical XOR operator (`⊕`) combines two Boolean values and returns
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
@@ -65,7 +65,7 @@ public extension Bool {
     
     /// Performs a logical XOR operation on two Boolean values.
     ///
-    /// The logical OR operator (`≢`) combines two Boolean values and returns
+    /// The logical XOR operator (`≢`) combines two Boolean values and returns
     /// `true` if exactly one of the values is `true`. If both values are
     /// `false`, or if both are `true`, the operator returns `false`.
     ///
