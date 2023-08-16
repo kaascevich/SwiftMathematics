@@ -56,6 +56,7 @@ public extension Bool {
 // MARK: - Material Equivalence
 
 infix operator ↔︎ : MaterialImplicationPrecedence
+infix operator ≡ : MaterialImplicationPrecedence
 
 public extension Bool {
     /// The material equivalence operator.
@@ -79,5 +80,28 @@ public extension Bool {
     ///  `true`; otherwise, `false`.
     static func ↔︎ (p: Self, q: Self) -> Self {
         p == q
+    }
+    
+    /// The material equivalence operator.
+    ///
+    /// The material equivalence operator (`≡`) takes two Boolean values and
+    /// returns `true` if both of them are `true` or both are `false`. Otherwise,
+    /// it returns `false`.
+    ///
+    /// | `p` | `q` | `p ≡ q` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `T`   |
+    /// | `T` | `F` |   `F`   |
+    /// | `F` | `T` |   `F`   |
+    /// | `F` | `F` |   `T`   |
+    ///
+    /// - Parameters:
+    ///   - p: The left-hand side of the operation.
+    ///   - q: The right-hand side of the operation.
+    ///
+    /// - Returns: If both `p` and `q` are `true`, or if both are `false`, then
+    ///  `true`; otherwise, `false`.
+    static func ≡ (p: Self, q: Self) -> Self {
+        p ↔︎ q
     }
 }

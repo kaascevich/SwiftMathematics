@@ -29,12 +29,17 @@ final class LogicImplicationSpec: QuickSpec {
             }
         }
         
-        describe("the material equivalence operator, ↔︎") {
+        describe("the material equivalence operators, ↔︎ and ≡") {
             it("returns true if p and q are equal") {
                 expect(true  ↔︎ true ).to(beTrue())
                 expect(true  ↔︎ false).to(beFalse())
                 expect(false ↔︎ true ).to(beFalse())
                 expect(false ↔︎ false).to(beTrue())
+                
+                expect(true  ≡ true ).to(beTrue())
+                expect(true  ≡ false).to(beFalse())
+                expect(false ≡ true ).to(beFalse())
+                expect(false ≡ false).to(beTrue())
             }
         }
     }
