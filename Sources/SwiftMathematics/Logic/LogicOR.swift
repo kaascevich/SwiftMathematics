@@ -14,9 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: - Logical OR
-
-infix operator ∨: LogicalDisjunctionPrecedence
+infix operator ∨ : LogicalDisjunctionPrecedence
 
 public extension Bool {
     /// Performs a logical OR operation on two Boolean values.

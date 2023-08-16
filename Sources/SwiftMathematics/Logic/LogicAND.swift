@@ -14,9 +14,7 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-// MARK: - Logical AND
-
-infix operator ∧: LogicalConjunctionPrecedence
+infix operator ∧ : LogicalConjunctionPrecedence
 
 public extension Bool {
     /// Performs a logical AND operation on two Boolean values.

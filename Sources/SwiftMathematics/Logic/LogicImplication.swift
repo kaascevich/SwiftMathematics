@@ -22,18 +22,18 @@ precedencegroup MaterialImplicationPrecedence {
     associativity: right
 }
 
-infix operator →: MaterialImplicationPrecedence
+infix operator → : MaterialImplicationPrecedence
 
 public extension Bool {
-    /// Performs a logical OR operation on two Boolean values.
+    /// The material implication operator.
     ///
-    /// The logical OR operator (`∨`) combines two Boolean values and returns
-    /// `true` if at least one of the values is `true`. If both values are
-    /// `false`, the operator returns `false`.
+    /// The material implication operator (`→`) takes two Boolean values and
+    /// returns `false` if the first value is `true` and the second is `false`.
+    /// Otherwise, it returns `true`.
     ///
     /// This operator uses short-circuit evaluation: The left-hand side (`p`) is
     /// evaluated first, and the right-hand side (`q`) is evaluated only if `p`
-    /// evaluates to `true`. For example:
+    /// evaluates to `true`.
     ///
     /// | `p` | `q` | `p → q` |
     /// |-----|-----|:-------:|
@@ -50,5 +50,34 @@ public extension Bool {
     ///   `true`.
     static func → (p: Self, q: @autoclosure () throws -> Self) rethrows -> Self {
         try ¬(p ∧ ¬q())
+    }
+}
+
+// MARK: - Material Equivalence
+
+infix operator ↔︎ : MaterialImplicationPrecedence
+
+public extension Bool {
+    /// The material equivalence operator.
+    ///
+    /// The material equivalence operator (`↔︎`) takes two Boolean values and
+    /// returns `true` if both of them are `true` or both are `false`. Otherwise,
+    /// it returns `false`.
+    ///
+    /// | `p` | `q` | `p ↔︎ q` |
+    /// |-----|-----|:-------:|
+    /// | `T` | `T` |   `T`   |
+    /// | `T` | `F` |   `F`   |
+    /// | `F` | `T` |   `F`   |
+    /// | `F` | `F` |   `T`   |
+    ///
+    /// - Parameters:
+    ///   - p: The left-hand side of the operation.
+    ///   - q: The right-hand side of the operation.
+    ///
+    /// - Returns: If both `p` and `q` are `true`, or if both are `false`, then
+    ///  `true`; otherwise, `false`.
+    static func ↔︎ (p: Self, q: Self) -> Self {
+        p == q
     }
 }
