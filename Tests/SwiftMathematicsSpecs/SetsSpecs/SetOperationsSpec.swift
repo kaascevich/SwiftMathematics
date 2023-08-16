@@ -62,5 +62,26 @@ final class SetOperationsSpec: QuickSpec {
                 expect(employees - neighbors).to(contain("Chris", "Diana", "Alicia"))
             }
         }
+        
+        describe("the Cartesian product operator, ×") {
+            it("matches up the elements of the given sets") {
+                let numbers: Set = [1, 2, 3, 4]
+                let strings: Set = ["Set", "Array", "Dictionary"]
+                
+                expect(numbers × strings).to(contain(
+                    [1, "Set"], [1, "Array"], [1, "Dictionary"],
+                    [2, "Set"], [2, "Array"], [2, "Dictionary"],
+                    [3, "Set"], [3, "Array"], [3, "Dictionary"],
+                    [4, "Set"], [4, "Array"], [4, "Dictionary"]
+                ))
+                
+                expect(numbers × numbers).to(contain(
+                    [1, 1], [1, 2], [1, 3], [1, 4],
+                    [2, 1], [2, 2], [2, 3], [2, 4],
+                    [3, 1], [3, 2], [3, 3], [3, 4],
+                    [4, 1], [4, 2], [4, 3], [4, 4]
+                ))
+            }
+        }
     }
 }

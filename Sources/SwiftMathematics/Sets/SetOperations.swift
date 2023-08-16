@@ -147,3 +147,38 @@ public extension Set {
         a.symmetricDifference(b)
     }
 }
+
+// MARK: - Cartesian Product
+
+/// A `Set` type with type-erased elements.
+public typealias SetOfAny = Set<AnyHashable>
+
+public extension Set {
+    /// Returns the Cartesian product of the given sets.
+    ///
+    /// - Parameters:
+    ///   - a: A set.
+    ///   - b: Another set.
+    ///
+    /// - Returns: A new set.
+    static func × <T: Hashable>(a: Self, b: Set<T>) -> Set<SetOfAny> {
+        var product: Set<SetOfAny> = []
+        a.forEach { x in
+            b.forEach { y in
+                product.insert([x, y])
+            }
+        }
+        return product
+    }
+    
+    /// Returns the Cartesian product of the given sets.
+    ///
+    /// - Parameters:
+    ///   - a: A set.
+    ///   - b: Another set.
+    ///
+    /// - Returns: A new set.
+    static func × (a: Self, b: Self) -> Set<Self> {
+        (a as SetOfAny × b as SetOfAny) as! Set<Self> // swiftlint:disable:this force_cast
+    }
+}
