@@ -60,6 +60,6 @@ public extension Bool {
     ///
     /// - Returns: The logical OR of `p` and `q`.
     static func ∨ (p: Self, q: @autoclosure () throws -> Self) rethrows -> Self {
-        try (p || q())
+        try p || q()
     }
 }

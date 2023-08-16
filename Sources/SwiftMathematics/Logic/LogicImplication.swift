@@ -17,8 +17,7 @@
 // MARK: - Material Implication
 
 precedencegroup MaterialImplicationPrecedence {
-    lowerThan: TernaryPrecedence
-    higherThan: AssignmentPrecedence
+    higherThan: TernaryPrecedence
     associativity: right
 }
 

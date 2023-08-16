@@ -59,6 +59,6 @@ public extension Bool {
     ///
     /// - Returns: The logical AND of `p` and `q`.
     static func ∧ (p: Self, q: @autoclosure () throws -> Self) rethrows -> Self {
-        try (p && q())
+        try p && q()
     }
 }
