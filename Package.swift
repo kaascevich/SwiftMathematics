@@ -44,18 +44,6 @@ let package = Package(
             .upToNextMajor(from: Version(0, 52, 4))
         ),
         .package(
-            url: "https://github.com/apple/swift-algorithms.git",
-            .upToNextMajor(from: Version(1, 0, 0))
-        ),
-        .package(
-            url: "https://github.com/apple/swift-async-algorithms.git",
-            .upToNextMajor(from: Version(0, 1, 0))
-        ),
-        .package(
-            url: "https://github.com/apple/swift-collections.git", 
-            .upToNextMajor(from: Version(1, 0, 4))
-        ),
-        .package(
             url: "https://github.com/apple/swift-numerics.git",
             .upToNextMajor(from: Version(1, 0, 2))
         ),
@@ -74,18 +62,6 @@ let package = Package(
         .target(
             name: "SwiftMathematics",
             dependencies: [
-                .product(
-                    name: "Algorithms",
-                    package: "swift-algorithms"
-                ),
-                .product(
-                    name: "AsyncAlgorithms",
-                    package: "swift-async-algorithms"
-                ),
-                .product(
-                    name: "Collections",
-                    package: "swift-collections"
-                ),
                 .product(
                     name: "Numerics",
                     package: "swift-numerics"
