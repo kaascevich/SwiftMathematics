@@ -52,3 +52,8 @@ public extension Numeric {
     ///   - rhs: The second value to multiply.
     @inlinable static func ×= (x: inout Self, y: Self) { x *= y }
 }
+
+// MARK: - Logical XOR
+
+infix operator ⊻ : LogicalDisjunctionPrecedence
+infix operator ≢ : LogicalDisjunctionPrecedence

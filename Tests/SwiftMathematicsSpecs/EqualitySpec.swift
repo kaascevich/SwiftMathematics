@@ -54,34 +54,5 @@ final class EqualitySpec: QuickSpec {
                 }
             }
         }
-        
-        describe("the identicality operators, ≡ and ≢") {
-            /// A simple class to test identicality with.
-            class SomeClass { }
-            
-            let someObject = SomeClass()
-            let someOtherObject = SomeClass()
-            let someReference = someObject
-            
-            describe("the identicality operator, ≡") {
-                it("is true if they reference the same object") {
-                    expect(someObject ≡ someReference).to(beTrue())
-                }
-                
-                it("is false if they reference different objects") {
-                    expect(someOtherObject ≡ someObject).toNot(beTrue())
-                }
-            }
-            
-            describe("the not-identical operator, ≢") {
-                it("is false if they reference the same object") {
-                    expect(someObject ≢ someReference).to(beFalse())
-                }
-                
-                it("is true if they reference different objects") {
-                    expect(someOtherObject ≢ someObject).toNot(beFalse())
-                }
-            }
-        }
     }
 }
