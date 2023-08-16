@@ -41,15 +41,19 @@ public extension Equatable {
 
 infix operator ≈ : ComparisonPrecedence
 infix operator ≉ : ComparisonPrecedence
+infix operator ⩰ : ComparisonPrecedence
 
 public extension FloatingPoint {
     /// Returns a Boolean value indicating whether the left-hand value
     /// approximately equals the right-hand value.
     ///
     /// This operator's tolerance is `Self.ulpOfOne.squareRoot()`.
-    /// `x.nextDown` and `x.nextUp`.
     ///
-    /// On US English keyboard layouts, the "`≤`" character can be entered using ⌥X.
+    /// On US English keyboard layouts, the "`≈`" character can be entered using ⌥X.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.
     ///
     /// - Returns: Whether the values are approximately equal.
     @inlinable static func ≈ (x: Self, y: Self) -> Bool {
@@ -68,6 +72,20 @@ public extension FloatingPoint {
     /// - Returns: Whether the values are not approximately equal.
     @inlinable static func ≉ (x: Self, y: Self) -> Bool {
         !(x ≈ y)
+    }
+    
+    /// Returns a Boolean value indicating whether the left-hand value
+    /// approximately equals, or is equal to, the right-hand value.
+    ///
+    /// This operator's tolerance is `Self.ulpOfOne.squareRoot()`.
+    ///
+    /// - Parameters:
+    ///   - x: A value to compare.
+    ///   - y: Another value to compare.   
+    ///
+    /// - Returns: Whether the values are approximately equal.
+    @inlinable static func ⩰ (x: Self, y: Self) -> Bool {
+        x.isApproximatelyEqual(to: y) || x == y
     }
 }
 
