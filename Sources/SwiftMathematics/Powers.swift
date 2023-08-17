@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 // MARK: - Power Operators
 
 // Unfortunately, "^" is already taken by the standard library as the XOR

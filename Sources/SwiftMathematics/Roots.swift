@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License along
 // with this package. If not, see https://www.gnu.org/licenses/.
 
-import Foundation
-
 // MARK: - Prefix Roots
 
 prefix operator √
@@ -50,7 +48,7 @@ public extension Double {
     /// - Parameter x: The value to calculate the cube root of.
     ///
     /// - Returns: The cube root of the value.
-    @inlinable static prefix func ∛ (x: Self) -> Self { cbrt(x) }
+    @inlinable static prefix func ∛ (x: Self) -> Self { root(x, 3) }
     
     /// Returns the fourth root of the given number, rounded to a representable
     /// value.
